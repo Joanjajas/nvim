@@ -87,8 +87,18 @@ return {
     event = "BufReadPre",
 
     config = function()
-      require("plugin.config.treesitter")
+      require("plugin.config.treesitter.treesitter")
     end,
+
+    dependencies = {
+      {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+
+        config = function()
+          require("plugin.config.treesitter.textobjects")
+        end,
+      },
+    },
   },
 
   -- lsp

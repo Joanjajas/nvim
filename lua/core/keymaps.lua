@@ -22,7 +22,6 @@ map("n", "<leader>tm", ":tabe | setlocal norelativenumber | term<CR>", default_o
 map("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', default_opts)
 
 -- insert function brackets
-map("n", "{{", "A {}<Left><CR><Esc>O<Esc>", default_opts)
 map("i", "{{", "<Esc>A {}<Left><CR><Esc>O", default_opts)
 
 -- insert endline semicolon
