@@ -6,7 +6,7 @@ local builtin = null_ls.builtins
 local null_ls_config = {
   sources = {
     builtin.formatting.stylua,
-    builtin.formatting.autopep8,
+    builtin.formatting.black,
     builtin.formatting.prettier,
   },
 }

@@ -12,7 +12,7 @@ local ensure_installed = {
 
   -- formatters
   "stylua",
-  "autopep8",
+  "black",
 }
 
 -- custom nvchad cmd to install all mason binaries listed
