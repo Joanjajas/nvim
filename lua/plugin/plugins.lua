@@ -9,12 +9,6 @@ return {
     end,
   },
 
-  {
-    "RRethy/nvim-base16",
-
-    lazy = false,
-  },
-
   -- file explorer
   {
     "nvim-tree/nvim-tree.lua",
