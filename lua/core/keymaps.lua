@@ -5,7 +5,7 @@ local default_opts = { noremap = true, silent = true }
 map("n", "<leader>r", ":%s/\\<\\>//gc<left><left><left><left><left><left>", default_opts)
 
 -- save current buffer
-map("n", "<leader>s", ":update<CR>", default_opts)
+map("n", "<leader>s", "<cmd>update<CR>", default_opts)
 
 -- exit insert mode
 map("i", "kj", "<Esc>", default_opts)
@@ -13,10 +13,10 @@ map("t", "kj", "<C-\\><C-n>", default_opts)
 map("c", "kj", "<Esc>", default_opts)
 
 -- close current window
-map("n", "<BS>", ":silent! q!<CR>", default_opts)
+map("n", "<BS>", "<cmd>silent! q!<CR>", default_opts)
 
 -- open terminal in new tab
-map("n", "<leader>tm", ":tabe | setlocal norelativenumber | term<CR>", default_opts)
+map("n", "<leader>tm", "<cmd>tabe | setlocal norelativenumber | term<CR>", default_opts)
 
 -- don't copy the replaced text after pasting in visual mode
 map("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', default_opts)
@@ -33,10 +33,10 @@ map("n", ",,", "A,<Esc>", default_opts)
 map("i", ",,", "<Esc>A,", default_opts)
 
 -- toggle neotree
-map("n", "<C-n>", ":NvimTreeToggle<CR>", default_opts)
+map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", default_opts)
 
 -- stop search highlighting
-map("n", "<Esc>", ":noh<CR>", default_opts)
+map("n", "<Esc>", "<cmd>noh<CR>", default_opts)
 
 -- allow moving the cursor through wrapped lines
 map("n", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
@@ -60,15 +60,15 @@ map("n", "<C-l>", "<C-w>l", default_opts)
 vim.api.nvim_set_keymap("i", "<C-n>", 'copilot#Accept("<CR>")', { expr = true, silent = true })
 
 -- telescope
-map("n", "<leader>fa", ":Telescope find_files no_ignore=true hidden=true<CR>", default_opts)
-map("n", "<leader>ff", ":Telescope find_files<CR>", default_opts)
-map("n", "<leader>fr", ":Telescope oldfiles<CR>", default_opts)
-map("n", "<leader>fg", ":Telescope live_grep<CR>", default_opts)
-map("n", "<leader>fd", ":Telescope diagnostics<CR>", default_opts)
-map("n", "<leader>th", ":Telescope colorscheme<CR>", default_opts)
-map("n", "<leader>gs", ":Telescope git_status<CR>", default_opts)
-map("n", "<leader>gc", ":Telescope git_commits<CR>", default_opts)
-map("n", "<leader>tc", ":TodoTelescope<CR>", default_opts)
+map("n", "<leader>fa", "<cmd>Telescope find_files no_ignore=true hidden=true<CR>", default_opts)
+map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", default_opts)
+map("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", default_opts)
+map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", default_opts)
+map("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", default_opts)
+map("n", "<leader>th", "<cmd>Telescope colorscheme<CR>", default_opts)
+map("n", "<leader>gs", "<cmd>Telescope git_status<CR>", default_opts)
+map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", default_opts)
+map("n", "<leader>tc", "<cmd>TodoTelescope<CR>", default_opts)
 
 -- lsp
 map("n", "gd", function()
@@ -100,12 +100,12 @@ map("n", "gN", function()
 end, default_opts)
 
 -- gitsigns
-map("n", "<leader>nh", ":Gitsigns next_hunk<CR>", default_opts)
-map("n", "<leader>Nh", ":Gitsigns prev_hunk<CR>", default_opts)
-map("n", "<leader>ph", ":Gitsigns preview_hunk<CR>", default_opts)
-map("n", "<leader>rh", ":Gitsigns reset_hunk<CR>", default_opts)
-map("n", "<leader>td", ":Gitsigns toggle_deleted<CR>", default_opts)
+map("n", "<leader>nh", "<cmd>Gitsigns next_hunk<CR>", default_opts)
+map("n", "<leader>Nh", "<cmd>Gitsigns prev_hunk<CR>", default_opts)
+map("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<CR>", default_opts)
+map("n", "<leader>rh", "<cmd>Gitsigns reset_hunk<CR>", default_opts)
+map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>", default_opts)
 
 -- comments
-map("n", "<leader>/", ":lua require('Comment.api').toggle.linewise.current()<CR>", default_opts)
-map("v", "<leader>/", ":lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", default_opts)
+map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", default_opts)
+map("v", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", default_opts)

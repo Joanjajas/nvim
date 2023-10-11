@@ -39,7 +39,7 @@ return {
   {
     "alvarosevilla95/luatab.nvim",
 
-    event = "VimEnter",
+    event = "TabNew",
 
     config = function()
       require("plugin.config.luatab")
@@ -72,13 +72,13 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
 
+    event = "BufReadPre",
+
     cmd = {
       "TSInstall",
       "TSUninstall",
       "TSUpdate",
     },
-
-    event = "BufReadPre",
 
     config = function()
       require("plugin.config.treesitter.treesitter")
@@ -109,8 +109,14 @@ return {
       "folke/neodev.nvim",
       "ray-x/lsp_signature.nvim",
       "nvimdev/lspsaga.nvim",
-      "github/copilot.vim",
     },
+  },
+
+  -- copilot
+  {
+    "github/copilot.vim",
+
+    event = "BufReadPre",
   },
 
   -- manage code formatters
@@ -149,17 +155,11 @@ return {
     config = function()
       require("plugin.config.todo")
     end,
-
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
   },
 
   -- colorizer
   {
     "norcalli/nvim-colorizer.lua",
-
-    event = "BufReadPre",
 
     config = function()
       require("plugin.config.colorizer")

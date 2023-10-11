@@ -15,7 +15,7 @@ local ensure_installed = {
   "black",
 }
 
--- custom nvchad cmd to install all mason binaries listed
+-- custom cmd to install all mason binaries in `ensure_installed`
 vim.api.nvim_create_user_command("MasonInstallAll", function()
   vim.cmd("MasonInstall " .. table.concat(ensure_installed, " "))
 end, {})
