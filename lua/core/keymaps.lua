@@ -107,5 +107,5 @@ map("n", "<leader>rh", "<cmd>Gitsigns reset_hunk<CR>", default_opts)
 map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>", default_opts)
 
 -- comments
-map("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", default_opts)
-map("v", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", default_opts)
+map("n", "<leader>/", ":lua require('Comment.api').toggle.linewise.current()<CR>", default_opts)
+map("v", "<leader>/", ":lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", default_opts)

@@ -5,6 +5,10 @@ local autopairs = require("nvim-autopairs.completion.cmp")
 local config = {
   preselect = false,
 
+  completion = {
+    keyword_length = 0,
+  },
+
   snippet = {
     expand = function(args)
       require("luasnip").lsp_expand(args.body)
