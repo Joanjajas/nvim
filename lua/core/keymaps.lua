@@ -4,6 +4,10 @@ local default_opts = { noremap = true, silent = true }
 -- search and replace
 map("n", "<leader>r", ":%s/\\<\\>//gc<left><left><left><left><left><left>", default_opts)
 
+-- copy to system clipboard
+map("v", "<leader>y", '"+y', default_opts)
+map("n", "<leader>y", '"+y', default_opts)
+
 -- save current buffer
 map("n", "<leader>s", "<cmd>update<CR>", default_opts)
 
