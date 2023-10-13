@@ -1,4 +1,5 @@
 return {
+  -- colorscheme
   {
     "ellisonleao/gruvbox.nvim",
 
@@ -35,22 +36,14 @@ return {
     end,
   },
 
-  -- tabline
-  {
-    "alvarosevilla95/luatab.nvim",
-
-    event = "TabNew",
-
-    config = function()
-      require("plugin.config.luatab")
-    end,
-  },
-
   -- indent guides
   {
     "lukas-reineke/indent-blankline.nvim",
 
-    event = "BufReadPre",
+    event = {
+      "BufNewFile",
+      "BufReadPre",
+    },
 
     config = function()
       require("plugin.config.blankline")
@@ -61,18 +54,24 @@ return {
   {
     "lewis6991/gitsigns.nvim",
 
-    event = "BufReadPre",
+    event = {
+      "BufNewFile",
+      "BufReadPre",
+    },
 
     config = function()
       require("plugin.config.gitsigns")
     end,
   },
 
-  -- improved syntax highlighting
+  -- improved syntax highlighting and text objects
   {
     "nvim-treesitter/nvim-treesitter",
 
-    event = "BufReadPre",
+    event = {
+      "BufNewFile",
+      "BufReadPre",
+    },
 
     cmd = {
       "TSInstall",
@@ -87,6 +86,7 @@ return {
     dependencies = {
       {
         "nvim-treesitter/nvim-treesitter-textobjects",
+        "nvim-treesitter/nvim-treesitter-context",
 
         config = function()
           require("plugin.config.treesitter.textobjects")
@@ -99,7 +99,10 @@ return {
   {
     "neovim/nvim-lspconfig",
 
-    event = "BufReadPre",
+    event = {
+      "BufNewFile",
+      "BufReadPre",
+    },
 
     config = function()
       require("plugin.config.lsp")
@@ -109,6 +112,7 @@ return {
       "folke/neodev.nvim",
       "ray-x/lsp_signature.nvim",
       "nvimdev/lspsaga.nvim",
+      "hrsh7th/cmp-nvim-lsp",
     },
   },
 
@@ -116,14 +120,20 @@ return {
   {
     "github/copilot.vim",
 
-    event = "BufReadPre",
+    event = {
+      "BufNewFile",
+      "BufReadPre",
+    },
   },
 
   -- manage code formatters
   {
     "jose-elias-alvarez/null-ls.nvim",
 
-    event = "BufReadPre",
+    event = {
+      "BufNewFile",
+      "BufReadPre",
+    },
 
     config = function()
       require("plugin.config.null-ls")
@@ -138,7 +148,10 @@ return {
   {
     "numToStr/Comment.nvim",
 
-    event = "BufReadPre",
+    event = {
+      "BufNewFile",
+      "BufReadPre",
+    },
 
     config = function()
       require("plugin.config.comment")
@@ -149,7 +162,11 @@ return {
   {
     "folke/todo-comments.nvim",
 
-    event = "BufReadPre",
+    event = {
+      "BufNewFile",
+      "BufReadPre",
+    },
+
     cmd = "TodoTelescope",
 
     config = function()
@@ -171,10 +188,15 @@ return {
     "windwp/nvim-autopairs",
 
     event = "InsertEnter",
+    opts = {},
+  },
 
-    config = function()
-      require("plugin.config.autopairs")
-    end,
+  -- tabline
+  {
+    "alvarosevilla95/luatab.nvim",
+
+    event = "TabNew",
+    opts = {},
   },
 
   -- atuocompletion

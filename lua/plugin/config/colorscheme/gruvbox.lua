@@ -16,10 +16,6 @@ local config = {
     TablineFill = {
       bg = "none",
     },
-
-    -- TablineSel = {
-    --   bg = "none",
-    -- },
   },
 }
 
