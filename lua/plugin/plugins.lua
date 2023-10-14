@@ -178,6 +178,11 @@ return {
   {
     "norcalli/nvim-colorizer.lua",
 
+    event = {
+      "BufNewFile",
+      "BufReadPre",
+    },
+
     config = function()
       require("plugin.config.colorizer")
     end,

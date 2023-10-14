@@ -36,6 +36,10 @@ map("i", ";;", "<Esc>A;", default_opts)
 map("n", ",,", "A,<Esc>", default_opts)
 map("i", ",,", "<Esc>A,", default_opts)
 
+-- insert endline colon
+map("n", ",;", "A:<Esc>", default_opts)
+map("i", ",;", "<Esc>A:", default_opts)
+
 -- toggle neotree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", default_opts)
 
@@ -75,15 +79,15 @@ map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", default_opts)
 map("n", "<leader>tc", "<cmd>TodoTelescope<CR>", default_opts)
 
 -- lsp
-map("n", "gd", function()
+map("n", "<leader>gd", function()
   vim.lsp.buf.definition()
 end, default_opts)
 
-map("n", "gd", function()
+map("n", "<leader>gr", function()
   vim.lsp.buf.references()
 end, default_opts)
 
-map("n", "rn", function()
+map("n", "<leader>rn", function()
   vim.lsp.buf.rename()
 end, default_opts)
 
@@ -91,15 +95,19 @@ map("n", "K", function()
   vim.lsp.buf.hover()
 end, default_opts)
 
+map("n", "<leader>ca", function()
+  vim.lsp.buf.code_action()
+end, default_opts)
+
 map("n", "m", function()
   vim.diagnostic.open_float()
 end, default_opts)
 
-map("n", "gn", function()
+map("n", "<leader>gn", function()
   vim.diagnostic.goto_next()
 end, default_opts)
 
-map("n", "gN", function()
+map("n", "<leader>gN", function()
   vim.diagnostic.goto_prev()
 end, default_opts)
 
