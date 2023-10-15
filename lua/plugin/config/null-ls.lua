@@ -6,6 +6,8 @@ local null_ls_config = {
   sources = {
     builtin.formatting.stylua,
     builtin.formatting.black,
+    builtin.formatting.shfmt,
+    builtin.diagnostics.shellcheck,
   },
 }
 

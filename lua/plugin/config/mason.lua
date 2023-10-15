@@ -9,10 +9,15 @@ local ensure_installed = {
   "lua-language-server",
   "rust-analyzer",
   "pyright",
+  "bash-language-server",
 
   -- formatters
   "stylua",
   "black",
+  "shfmt",
+
+  -- linters
+  "shellcheck",
 }
 
 -- custom cmd to install all mason binaries in `ensure_installed`

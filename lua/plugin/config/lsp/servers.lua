@@ -7,7 +7,7 @@ local handlers = {
 }
 
 -- user installed servers
-local servers = { "lua_ls", "rust_analyzer", "pyright", "matlab_ls" }
+local servers = { "lua_ls", "rust_analyzer", "pyright", "bashls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
