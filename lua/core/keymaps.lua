@@ -1,10 +1,10 @@
 local map = vim.keymap.set
 
--- copy to system clipboard
-map({ "n", "v" }, "<leader>y", '"+y')
-
 -- save current buffer
 map("n", "<leader>s", "<cmd>update<CR>")
+
+-- copy to system clipboard
+map({ "n", "v" }, "<leader>y", '"+y')
 
 -- exit insert mode
 map({ "i", "c" }, "kj", "<Esc>")

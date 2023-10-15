@@ -1,8 +1,23 @@
+require("core.options")
+require("core.keymaps")
+require("core.autocmd")
+
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
-  require("core.util").bootstrap_lazy(lazypath)
+  print("Installing package manager  ...")
+
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
+
+  print(" ")
 end
 
 -- add lazy.nvim to runtime path

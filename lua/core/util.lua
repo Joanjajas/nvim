@@ -1,21 +1,5 @@
 local M = {}
 
--- bootstrap lazy.nvim
-M.bootstrap_lazy = function(lazypath)
-  print("Installing package manager  ...")
-
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
-
-  print(" ")
-end
-
 -- get visible buffers
 M.get_visible_buffers = function()
   local buffers = {}
