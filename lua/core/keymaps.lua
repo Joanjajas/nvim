@@ -1,50 +1,29 @@
 local map = vim.keymap.set
-local default_opts = { noremap = true, silent = true }
-
--- search and replace
-map("n", "<leader>r", ":%s/\\<\\>//gc<left><left><left><left><left><left>", default_opts)
 
 -- copy to system clipboard
-map("v", "<leader>y", '"+y', default_opts)
-map("n", "<leader>y", '"+y', default_opts)
+map({ "n", "v" }, "<leader>y", '"+y')
 
 -- save current buffer
-map("n", "<leader>s", "<cmd>update<CR>", default_opts)
+map("n", "<leader>s", "<cmd>update<CR>")
 
 -- exit insert mode
-map("i", "kj", "<Esc>", default_opts)
-map("t", "kj", "<C-\\><C-n>", default_opts)
-map("c", "kj", "<Esc>", default_opts)
+map({ "i", "c" }, "kj", "<Esc>")
+map("t", "kj", "<C-\\><C-n>")
 
 -- close current window
-map("n", "<BS>", "<cmd>silent! q!<CR>", default_opts)
+map("n", "<BS>", "<cmd>silent! q!<CR>")
 
 -- open terminal in new tab
-map("n", "<leader>tm", "<cmd>tabe | setlocal norelativenumber | term<CR>", default_opts)
+map("n", "<leader>tm", "<cmd>tabe | setlocal norelativenumber | term<CR>")
 
 -- don't copy the replaced text after pasting in visual mode
-map("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', default_opts)
-
--- insert function brackets
-map("i", "{{", "<Esc>A {}<Left><CR><Esc>O", default_opts)
-
--- insert endline semicolon
-map("n", ";;", "A;<Esc>", default_opts)
-map("i", ";;", "<Esc>A;", default_opts)
-
--- insert endline comma
-map("n", ",,", "A,<Esc>", default_opts)
-map("i", ",,", "<Esc>A,", default_opts)
-
--- insert endline colon
-map("n", ",;", "A:<Esc>", default_opts)
-map("i", ",;", "<Esc>A:", default_opts)
+map("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>')
 
 -- toggle neotree
-map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", default_opts)
+map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
 
 -- stop search highlighting
-map("n", "<Esc>", "<cmd>noh<CR>", default_opts)
+map("n", "<Esc>", "<cmd>noh<CR>")
 
 -- allow moving the cursor through wrapped lines
 map("n", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
@@ -53,71 +32,76 @@ map("v", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
 map("v", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 
 -- navigate within insert mode
-map("i", "<C-h>", "<Left>", default_opts)
-map("i", "<C-j>", "<Down>", default_opts)
-map("i", "<C-k>", "<Up>", default_opts)
-map("i", "<C-l>", "<Right>", default_opts)
+map("i", "<C-h>", "<Left>")
+map("i", "<C-j>", "<Down>")
+map("i", "<C-k>", "<Up>")
+map("i", "<C-l>", "<Right>")
 
 -- move around splits using Ctrl + { h,j,k,l }
-map("n", "<C-h>", "<C-w>h", default_opts)
-map("n", "<C-j>", "<C-w>j", default_opts)
-map("n", "<C-k>", "<C-w>k", default_opts)
-map("n", "<C-l>", "<C-w>l", default_opts)
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-l>", "<C-w>l")
 
 -- github copilot
-vim.api.nvim_set_keymap("i", "<C-n>", 'copilot#Accept("<CR>")', { expr = true, silent = true })
+map("i", "<C-n>", "copilot#Accept()", { expr = true, replace_keycodes = false })
 
 -- telescope
-map("n", "<leader>fa", "<cmd>Telescope find_files no_ignore=true hidden=true<CR>", default_opts)
-map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", default_opts)
-map("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", default_opts)
-map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", default_opts)
-map("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", default_opts)
-map("n", "<leader>th", "<cmd>Telescope colorscheme<CR>", default_opts)
-map("n", "<leader>gs", "<cmd>Telescope git_status<CR>", default_opts)
-map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", default_opts)
-map("n", "<leader>tc", "<cmd>TodoTelescope<CR>", default_opts)
-
--- lsp
-map("n", "<leader>gd", function()
-  vim.lsp.buf.definition()
-end, default_opts)
-
-map("n", "<leader>gr", function()
-  vim.lsp.buf.references()
-end, default_opts)
-
-map("n", "<leader>rn", function()
-  vim.lsp.buf.rename()
-end, default_opts)
-
-map("n", "K", function()
-  vim.lsp.buf.hover()
-end, default_opts)
-
-map("n", "<leader>ca", function()
-  vim.lsp.buf.code_action()
-end, default_opts)
-
-map("n", "m", function()
-  vim.diagnostic.open_float()
-end, default_opts)
-
-map("n", "<leader>gn", function()
-  vim.diagnostic.goto_next()
-end, default_opts)
-
-map("n", "<leader>gN", function()
-  vim.diagnostic.goto_prev()
-end, default_opts)
+map("n", "<leader>tfa", "<cmd>Telescope find_files no_ignore=true hidden=true<CR>")
+map("n", "<leader>tff", "<cmd>Telescope find_files<CR>")
+map("n", "<leader>tfr", "<cmd>Telescope oldfiles<CR>")
+map("n", "<leader>tfg", "<cmd>Telescope live_grep<CR>")
+map("n", "<leader>tfd", "<cmd>Telescope diagnostics<CR>")
+map("n", "<leader>tth", "<cmd>Telescope colorscheme<CR>")
+map("n", "<leader>tgs", "<cmd>Telescope git_status<CR>")
+map("n", "<leader>tgc", "<cmd>Telescope git_commits<CR>")
+map("n", "<leader>ttc", "<cmd>TodoTelescope<CR>")
 
 -- gitsigns
-map("n", "<leader>nh", "<cmd>Gitsigns next_hunk<CR>", default_opts)
-map("n", "<leader>Nh", "<cmd>Gitsigns prev_hunk<CR>", default_opts)
-map("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<CR>", default_opts)
-map("n", "<leader>rh", "<cmd>Gitsigns reset_hunk<CR>", default_opts)
-map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>", default_opts)
+map("n", "<leader>gnh", "<cmd>Gitsigns next_hunk<CR>")
+map("n", "<leader>gNh", "<cmd>Gitsigns prev_hunk<CR>")
+map("n", "<leader>gph", "<cmd>Gitsigns preview_hunk<CR>")
+map("n", "<leader>grh", "<cmd>Gitsigns reset_hunk<CR>")
+map("n", "<leader>gtd", "<cmd>Gitsigns toggle_deleted<CR>")
+
+-- lsp
+map("n", "<leader>lgd", function()
+  vim.lsp.buf.definition()
+end)
+
+map("n", "<leader>lgr", function()
+  vim.lsp.buf.references()
+end)
+
+map("n", "<leader>lrn", function()
+  vim.lsp.buf.rename()
+end)
+
+map("n", "<leader>lh", function()
+  vim.lsp.buf.hover()
+end)
+
+map("n", "<leader>lca", function()
+  vim.lsp.buf.code_action()
+end)
+
+map("n", "<leader>lf", function()
+  vim.diagnostic.open_float()
+end)
+
+map("n", "<leader>lgn", function()
+  vim.diagnostic.goto_next()
+end)
+
+map("n", "<leader>lgN", function()
+  vim.diagnostic.goto_prev()
+end)
 
 -- comments
-map("n", "<leader>/", ":lua require('Comment.api').toggle.linewise.current()<CR>", default_opts)
-map("v", "<leader>/", ":lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", default_opts)
+map("n", "<leader>/", function()
+  require("Comment.api").toggle.linewise.current()
+end)
+
+map("v", "<leader>/", function()
+  require("Comment.api").toggle.linewise(vim.fn.visualmode())
+end)

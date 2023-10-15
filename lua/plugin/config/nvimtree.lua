@@ -2,7 +2,6 @@ local nvimtree = require("nvim-tree")
 local api = require("nvim-tree.api")
 
 local config = {
-  disable_netrw = true,
   hijack_cursor = true,
 
   update_focused_file = {
