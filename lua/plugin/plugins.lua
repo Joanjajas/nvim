@@ -36,13 +36,19 @@ return {
     end,
   },
 
+  -- tmux integration
+  {
+    "christoomey/vim-tmux-navigator",
+    event = "VimEnter",
+  },
+
   -- indent guides
   {
     "lukas-reineke/indent-blankline.nvim",
 
     event = {
       "BufNewFile",
-      "BufReadPre",
+      "BufReadPost",
     },
 
     config = function()
@@ -56,7 +62,7 @@ return {
 
     event = {
       "BufNewFile",
-      "BufReadPre",
+      "BufReadPost",
     },
 
     config = function()
@@ -70,7 +76,7 @@ return {
 
     event = {
       "BufNewFile",
-      "BufReadPre",
+      "BufReadPost",
     },
 
     cmd = {
@@ -102,7 +108,7 @@ return {
 
     event = {
       "BufNewFile",
-      "BufReadPre",
+      "BufReadPost",
     },
 
     config = function()
@@ -123,7 +129,7 @@ return {
 
     event = {
       "BufNewFile",
-      "BufReadPre",
+      "BufReadPost",
     },
   },
 
@@ -133,7 +139,7 @@ return {
 
     event = {
       "BufNewFile",
-      "BufReadPre",
+      "BufReadPost",
     },
 
     config = function()
@@ -151,7 +157,7 @@ return {
 
     event = {
       "BufNewFile",
-      "BufReadPre",
+      "BufReadPost",
     },
 
     config = function()
@@ -165,7 +171,7 @@ return {
 
     event = {
       "BufNewFile",
-      "BufReadPre",
+      "BufReadPost",
     },
 
     cmd = "TodoTelescope",
@@ -181,7 +187,7 @@ return {
 
     event = {
       "BufNewFile",
-      "BufReadPre",
+      "BufReadPost",
     },
 
     config = function()
