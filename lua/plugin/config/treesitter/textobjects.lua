@@ -16,6 +16,8 @@ local config = {
         ["al"] = "@loop.outer",
         ["icl"] = "@call.inner",
         ["acl"] = "@call.outer",
+        ["ics"] = "@class.inner",
+        ["acs"] = "@class.outer",
         ["ia"] = "@assignment.inner",
         ["aa"] = "@assignment.outer",
       },
