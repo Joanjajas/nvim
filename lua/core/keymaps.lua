@@ -13,6 +13,14 @@ map("t", "kj", "<C-\\><C-n>")
 -- close current window
 map("n", "<BS>", "<cmd>silent! q!<CR>")
 
+-- jump half page up/down
+map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz")
+
+-- jump to next search result
+map("n", "n", "nzz")
+map("n", "N", "Nzz")
+
 -- open terminal in new tab
 map("n", "<leader>tm", "<cmd>tabe | setlocal norelativenumber | term<CR>")
 

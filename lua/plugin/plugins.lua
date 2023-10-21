@@ -151,6 +151,18 @@ return {
     },
   },
 
+  -- surround
+  {
+    "kylechui/nvim-surround",
+
+    event = {
+      "BufNewFile",
+      "BufReadPost",
+    },
+
+    opts = {},
+  },
+
   -- smart comments
   {
     "numToStr/Comment.nvim",
