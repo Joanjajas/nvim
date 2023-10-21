@@ -3,8 +3,18 @@ local map = vim.keymap.set
 -- save current buffer
 map("n", "<leader>s", "<cmd>update<CR>")
 
+-- replace word under cursor in whole file
+map("n", "<leader>r", ":%s/<C-r><C-w>//g<Left><Left>")
+
+-- move visual selections
+map("v", "J", ":move '>+1<CR>gv-gv")
+map("v", "K", ":move '<-2<CR>gv-gv")
+
+-- exit visual mode
+map("v", "v", "<Esc>")
+
 -- copy to system clipboard
-map({ "n", "v" }, "<leader>y", '"+y')
+map({ "n", "v", "t" }, "<leader>y", '"+y')
 
 -- exit insert mode
 map({ "i", "c" }, "kj", "<Esc>")

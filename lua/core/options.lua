@@ -5,6 +5,8 @@ g.mapleader = " "
 g.copilot_assume_mapped = true
 g.copilot_no_tab_map = true
 
+opt.guicursor = ""
+opt.hlsearch = false
 opt.rnu = true
 opt.showmode = false
 opt.termguicolors = true
