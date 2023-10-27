@@ -130,7 +130,6 @@ return {
       "folke/neodev.nvim",
       "ray-x/lsp_signature.nvim",
       "nvimdev/lspsaga.nvim",
-      "hrsh7th/cmp-nvim-lsp",
     },
   },
 
@@ -239,7 +238,17 @@ return {
 
     dependencies = {
       -- snippet engine
-      "L3MON4D3/LuaSnip",
+      {
+        "L3MON4D3/LuaSnip",
+
+        config = function()
+          require("plugin.config.luasnip")
+        end,
+
+        dependencies = {
+          "rafamadriz/friendly-snippets",
+        },
+      },
 
       -- icons
       "onsails/lspkind.nvim",
@@ -251,19 +260,6 @@ return {
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
-    },
-  },
-
-  -- snippet engine
-  {
-    "L3MON4D3/LuaSnip",
-
-    config = function()
-      require("plugin.config.luasnip")
-    end,
-
-    dependencies = {
-      "rafamadriz/friendly-snippets",
     },
   },
 

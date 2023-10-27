@@ -24,9 +24,18 @@ opt.smarttab = true
 opt.mouse = "a"
 opt.whichwrap:append("hl")
 opt.fillchars = {
-  vert = " ",
+  stl = " ",
+  stlnc = " ",
+  wbr = " ",
   horiz = " ",
-  fold = " ",
-  eob = " ",
+  horizup = " ",
+  horizdown = " ",
+  vert = " ",
+  vertleft = " ",
+  vertright = " ",
+  verthoriz = " ",
   diff = " ",
+  msgsep = " ",
+  eob = " ",
+  lastline = " ",
 }
