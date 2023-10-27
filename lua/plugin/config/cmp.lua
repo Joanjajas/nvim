@@ -43,7 +43,7 @@ local config = {
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expand_or_jump() then
+      elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       else
         fallback()
@@ -52,15 +52,16 @@ local config = {
   },
 
   sources = {
-    { name = "nvim_lsp" },
-    { name = "path" },
     { name = "luasnip" },
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
     {
       name = "buffer",
       option = {
         get_bufnrs = require("core.util").get_visible_buffers,
       },
     },
+    { name = "path" },
   },
 }
 

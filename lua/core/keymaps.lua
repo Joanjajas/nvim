@@ -7,17 +7,17 @@ map("n", "<leader>s", "<cmd>update<CR>")
 map("n", "<leader>r", ":%s/<C-r><C-w>//g<Left><Left>")
 
 -- move visual selections
-map("v", "J", ":move '>+1<CR>gv-gv")
-map("v", "K", ":move '<-2<CR>gv-gv")
+map("x", "J", ":move '>+1<CR>gv-gv")
+map("x", "K", ":move '<-2<CR>gv-gv")
 
 -- exit visual mode
-map("v", "v", "<Esc>")
+map("x", "v", "<Esc>")
 
 -- copy to system clipboard
-map({ "n", "v", "t" }, "<leader>y", '"+y')
+map({ "n", "x", "t" }, "<leader>y", '"+y')
 
 -- exit insert mode
-map({ "i", "c" }, "kj", "<Esc>")
+map({ "i", "c", "s" }, "kj", "<Esc>")
 map("t", "kj", "<C-\\><C-n>")
 
 -- close current window
@@ -35,7 +35,7 @@ map("n", "N", "Nzz")
 map("n", "<leader>tm", "<cmd>tabe | setlocal norelativenumber | term<CR>")
 
 -- don't copy the replaced text after pasting in visual mode
-map("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>')
+map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>')
 
 -- toggle neotree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
@@ -46,8 +46,8 @@ map("n", "<Esc>", "<cmd>noh<CR>")
 -- allow moving the cursor through wrapped lines
 map("n", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
 map("n", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
-map("v", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
-map("v", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
+map("x", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
+map("x", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 
 -- navigate within insert mode
 map("i", "<C-h>", "<Left>")
@@ -83,13 +83,9 @@ map("n", "<leader>grh", "<cmd>Gitsigns reset_hunk<CR>")
 map("n", "<leader>gtd", "<cmd>Gitsigns toggle_deleted<CR>")
 
 -- lsp
-map("n", "<leader>lgd", function()
-  vim.lsp.buf.definition()
-end)
-
-map("n", "<leader>lgr", function()
-  vim.lsp.buf.references()
-end)
+map("n", "<leader>lgd", "<cmd>Telescope lsp_definitions<CR>")
+map("n", "<leader>lgr", "<cmd>Telescope lsp_references<CR>")
+map("n", "<leader>lds", "<cmd>Telescope lsp_document_symbols<CR>")
 
 map("n", "<leader>lrn", function()
   vim.lsp.buf.rename()
@@ -115,11 +111,11 @@ map("n", "<leader>lgN", function()
   vim.diagnostic.goto_prev()
 end)
 
+-- comments
 map("n", "<leader>cm", function()
   require("Comment.api").toggle.linewise.current()
 end)
 
--- Toggle selection (linewise)
 vim.keymap.set("v", "<leader>cm", function()
   local esc = vim.api.nvim_replace_termcodes("<esc>", true, false, true)
   vim.api.nvim_feedkeys(esc, "nx", false)

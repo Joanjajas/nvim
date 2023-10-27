@@ -42,6 +42,17 @@ return {
     event = "VimEnter",
   },
 
+  -- copilot
+  {
+    "github/copilot.vim",
+
+    -- NOTE: If this event is set to BufRead or similar the plugin will pause
+    -- neovim when opening a file using telescope until is loaded producing an
+    -- annoying delay on the first file opened. But it only happens in insert
+    -- mode inside the telescope window.
+    event = "VimEnter",
+  },
+
   -- indent guides
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -120,16 +131,6 @@ return {
       "ray-x/lsp_signature.nvim",
       "nvimdev/lspsaga.nvim",
       "hrsh7th/cmp-nvim-lsp",
-    },
-  },
-
-  -- copilot
-  {
-    "github/copilot.vim",
-
-    event = {
-      "BufNewFile",
-      "BufReadPost",
     },
   },
 
@@ -246,6 +247,7 @@ return {
       -- cmp sources
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
