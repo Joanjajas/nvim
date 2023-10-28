@@ -8,10 +8,6 @@ local config = {
     enable = true,
   },
 
-  git = {
-    enable = false,
-  },
-
   diagnostics = {
     enable = true,
     show_on_dirs = true,
@@ -20,6 +16,14 @@ local config = {
 
   renderer = {
     root_folder_label = false,
+
+    icons = {
+      glyphs = {
+        git = {
+          unstaged = "",
+        },
+      },
+    },
   },
 
   view = {

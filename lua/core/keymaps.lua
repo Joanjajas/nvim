@@ -4,7 +4,7 @@ local map = vim.keymap.set
 map("n", "<leader>s", "<cmd>update<CR>")
 
 -- replace word under cursor in whole file
-map("n", "<leader>r", ":%s/<C-r><C-w>//g<Left><Left>")
+map("n", "<leader>r", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>")
 
 -- move visual selections
 map("x", "J", ":move '>+1<CR>gv-gv")
@@ -37,7 +37,7 @@ map("n", "<leader>tm", "<cmd>tabe | setlocal norelativenumber | term<CR>")
 -- don't copy the replaced text after pasting in visual mode
 map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>')
 
--- toggle neotree
+-- toggle nvimtree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
 
 -- stop search highlighting
@@ -73,6 +73,7 @@ map("n", "<leader>tfd", "<cmd>Telescope diagnostics<CR>")
 map("n", "<leader>tth", "<cmd>Telescope colorscheme<CR>")
 map("n", "<leader>tgs", "<cmd>Telescope git_status<CR>")
 map("n", "<leader>tgc", "<cmd>Telescope git_commits<CR>")
+map("n", "<leader>thl", "<cmd>Telescope highlights<CR>")
 map("n", "<leader>ttc", "<cmd>TodoTelescope<CR>")
 
 -- gitsigns
@@ -116,7 +117,7 @@ map("n", "<leader>cm", function()
   require("Comment.api").toggle.linewise.current()
 end)
 
-vim.keymap.set("v", "<leader>cm", function()
+map("v", "<leader>cm", function()
   local esc = vim.api.nvim_replace_termcodes("<esc>", true, false, true)
   vim.api.nvim_feedkeys(esc, "nx", false)
   require("Comment.api").toggle.linewise(vim.fn.visualmode())

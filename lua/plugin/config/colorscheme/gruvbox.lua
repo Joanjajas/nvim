@@ -16,6 +16,10 @@ local config = {
     TablineFill = {
       bg = "none",
     },
+
+    NvimTreeGitDirty = {
+      fg = "#75f14f",
+    },
   },
 }
 
