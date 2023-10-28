@@ -8,6 +8,10 @@ local config = {
     enable = true,
   },
 
+  git = {
+    ignore = false,
+  },
+
   diagnostics = {
     enable = true,
     show_on_dirs = true,
@@ -21,6 +25,7 @@ local config = {
       glyphs = {
         git = {
           unstaged = "",
+          ignored = "",
         },
       },
     },
