@@ -3,8 +3,12 @@ local map = vim.keymap.set
 -- save current buffer
 map("n", "<leader>s", "<cmd>update<CR>")
 
+-- move between quickfix list items
+map("n", "<leader>n", "<cmd>cnext<CR>")
+map("n", "<leader>p", "<cmd>cprev<CR>")
+
 -- replace word under cursor in whole file
-map("n", "<leader>r", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>")
+map("n", "<leader>rn", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>")
 
 -- move visual selections
 map("x", "J", ":move '>+1<CR>gv-gv")
@@ -65,16 +69,18 @@ map("n", "<C-l>", "<C-w>l")
 map("i", "<C-n>", "copilot#Accept()", { expr = true, replace_keycodes = false })
 
 -- telescope
+map("n", "<leader>ttl", "<cmd>Telescope<CR>")
 map("n", "<leader>tfa", "<cmd>Telescope find_files no_ignore=true hidden=true<CR>")
 map("n", "<leader>tff", "<cmd>Telescope find_files<CR>")
 map("n", "<leader>tfr", "<cmd>Telescope oldfiles<CR>")
-map("n", "<leader>tfg", "<cmd>Telescope live_grep<CR>")
-map("n", "<leader>tfd", "<cmd>Telescope diagnostics<CR>")
+map("n", "<leader>trg", "<cmd>Telescope live_grep<CR>")
 map("n", "<leader>tth", "<cmd>Telescope colorscheme<CR>")
 map("n", "<leader>tgs", "<cmd>Telescope git_status<CR>")
 map("n", "<leader>tgc", "<cmd>Telescope git_commits<CR>")
+map("n", "<leader>tgb", "<cmd>Telescope git_branches<CR>")
 map("n", "<leader>thl", "<cmd>Telescope highlights<CR>")
 map("n", "<leader>ttc", "<cmd>TodoTelescope<CR>")
+map("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
 
 -- gitsigns
 map("n", "<leader>gnh", "<cmd>Gitsigns next_hunk<CR>")
@@ -87,6 +93,7 @@ map("n", "<leader>gtd", "<cmd>Gitsigns toggle_deleted<CR>")
 map("n", "<leader>lgd", "<cmd>Telescope lsp_definitions<CR>")
 map("n", "<leader>lgr", "<cmd>Telescope lsp_references<CR>")
 map("n", "<leader>lds", "<cmd>Telescope lsp_document_symbols<CR>")
+map("n", "<leader>ldg", "<cmd>Telescope diagnostics<CR>")
 
 map("n", "<leader>lrn", function()
   vim.lsp.buf.rename()
