@@ -10,6 +10,16 @@ return {
     end,
   },
 
+  {
+    "navarasu/onedark.nvim",
+
+    lazy = false,
+
+    config = function()
+      require("plugin.config.colorscheme.onedark")
+    end,
+  },
+
   -- file explorer
   {
     "nvim-tree/nvim-tree.lua",

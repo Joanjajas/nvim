@@ -4,7 +4,7 @@ return {
   },
 
   install = {
-    colorscheme = { "gruvbox" },
+    colorscheme = { "onerark" },
   },
 
   performance = {

@@ -1,7 +1,7 @@
 -- global editor diagnostics config
 vim.diagnostic.config({
   virtual_text = true,
-  underline = false,
+  -- underline = false,
   float = { border = "rounded" },
 })
 

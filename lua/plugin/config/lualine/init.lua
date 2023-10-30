@@ -1,20 +1,12 @@
 local lualine = require("lualine")
 
 local component = require("plugin.config.lualine.component")
-local theme = require("lualine.themes.auto")
-theme.normal.c.bg = "none"
-theme.inactive.c.bg = "none"
-theme.insert.c.bg = "none"
-theme.visual.c.bg = "none"
-theme.replace.c.bg = "none"
-theme.command.c.bg = "none"
 
 local config = {
   options = {
     globalstatus = true,
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
-    theme = theme,
 
     refresh = {
       statusline = 150,
