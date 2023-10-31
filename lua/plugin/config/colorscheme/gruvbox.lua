@@ -9,13 +9,8 @@ local config = {
   },
 
   overrides = {
-    Tabline = {
-      bg = "none",
-    },
-
-    TablineFill = {
-      bg = "none",
-    },
+    Tabline = { bg = "none" },
+    TablineFill = { bg = "none" },
   },
 }
 
