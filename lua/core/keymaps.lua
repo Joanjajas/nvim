@@ -89,6 +89,16 @@ map("n", "<leader>gph", "<cmd>Gitsigns preview_hunk<CR>")
 map("n", "<leader>grh", "<cmd>Gitsigns reset_hunk<CR>")
 map("n", "<leader>gtd", "<cmd>Gitsigns toggle_deleted<CR>")
 
+-- harpoon
+map("n", "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>")
+map("n", "<leader>hf", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")
+map("n", "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<CR>")
+map("n", "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>")
+map("n", "<leader>h1", "<cmd>lua require('harpoon.ui').nav_file(1)<CR>")
+map("n", "<leader>h2", "<cmd>lua require('harpoon.ui').nav_file(2)<CR>")
+map("n", "<leader>h3", "<cmd>lua require('harpoon.ui').nav_file(3)<CR>")
+map("n", "<leader>h4", "<cmd>lua require('harpoon.ui').nav_file(4)<CR>")
+
 -- lsp
 map("n", "<leader>lgd", "<cmd>Telescope lsp_definitions<CR>")
 map("n", "<leader>lgr", "<cmd>Telescope lsp_references<CR>")

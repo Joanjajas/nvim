@@ -1,4 +1,5 @@
 return {
+
   -- colorscheme
   {
     "ellisonleao/gruvbox.nvim",
@@ -215,6 +216,16 @@ return {
     config = function()
       require("plugin.config.colorizer")
     end,
+  },
+
+  -- add and switch between project files
+  {
+    "ThePrimeagen/harpoon",
+
+    event = {
+      "BufNewFile",
+      "BufReadPost",
+    },
   },
 
   -- autopairs

@@ -13,6 +13,7 @@ local options = {
     darker = false,
   },
 
+  -- TODO: fix tabline colors
   highlights = {
     NormalFloat = { bg = "none" },
     FloatBorder = { bg = "none" },
