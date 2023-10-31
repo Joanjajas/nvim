@@ -1,5 +1,4 @@
 return {
-
   -- colorscheme
   {
     "ellisonleao/gruvbox.nvim",
@@ -225,6 +224,10 @@ return {
     event = {
       "BufNewFile",
       "BufReadPost",
+    },
+
+    dependencies = {
+      "nvim-lua/plenary.nvim",
     },
   },
 

@@ -1,6 +1,7 @@
 local nvimtree = require("nvim-tree")
 local api = require("nvim-tree.api")
 
+-- TODO: change git info icons
 local config = {
   hijack_cursor = true,
 
