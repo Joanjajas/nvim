@@ -1,9 +1,4 @@
-local g = vim.g
 local opt = vim.opt
-
-g.mapleader = " "
-g.copilot_assume_mapped = true
-g.copilot_no_tab_map = true
 
 opt.guicursor = ""
 opt.hlsearch = false

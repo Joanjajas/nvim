@@ -1,4 +1,8 @@
 local map = vim.keymap.set
+local g = vim.g
+
+-- set leader key
+g.mapleader = " "
 
 -- save current buffer
 map("n", "<leader>s", "<cmd>update<CR>")
@@ -134,6 +138,9 @@ end)
 map("n", "<leader>lgN", function()
   vim.diagnostic.goto_prev()
 end)
+
+-- undo tree
+map("n", "<leader>ut", "<cmd>UndotreeToggle<CR>")
 
 -- comments
 map("n", "<leader>cm", function()

@@ -1,4 +1,8 @@
--- global editor diagnostics config
+require("plugin.config.lsp.lspsaga")
+require("plugin.config.lsp.signature")
+require("plugin.config.lsp.servers")
+require("neodev").setup()
+
 vim.diagnostic.config({
   virtual_text = true,
   -- underline = false,
@@ -13,15 +17,3 @@ for type, icon in pairs(icons) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl })
 end
-
--- improve neovim lsp experience
-require("plugin.config.lsp.lspsaga")
-
--- signature help, docs and completion for the nvim lua API.
-require("neodev").setup()
-
--- function signatures
-require("plugin.config.lsp.signature")
-
--- lsp servers
-require("plugin.config.lsp.servers")

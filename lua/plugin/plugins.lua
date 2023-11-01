@@ -21,13 +21,7 @@ return {
     end,
   },
 
-  -- tmux integration
-  {
-    "christoomey/vim-tmux-navigator",
-    event = "VimEnter",
-  },
-
-  -- add and switch between project files
+  -- switch betwwen marked project files
   {
     "ThePrimeagen/harpoon",
 
@@ -38,6 +32,12 @@ return {
     },
   },
 
+  -- tmux integration
+  {
+    "christoomey/vim-tmux-navigator",
+    event = "VimEnter",
+  },
+
   -- statusline
   {
     "nvim-lualine/lualine.nvim",
@@ -46,6 +46,8 @@ return {
       "BufNewFile",
       "BufReadPost",
       "BufLeave",
+      "InsertEnter",
+      "CursorMoved",
     },
 
     config = function()
@@ -97,18 +99,11 @@ return {
     },
 
     config = function()
-      require("plugin.config.treesitter.treesitter")
+      require("plugin.config.treesitter")
     end,
 
     dependencies = {
-      {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-
-        config = function()
-          require("plugin.config.treesitter.textobjects")
-        end,
-      },
-
+      "nvim-treesitter/nvim-treesitter-textobjects",
       "nvim-treesitter/nvim-treesitter-context",
     },
   },
@@ -161,6 +156,19 @@ return {
     },
 
     opts = {},
+  },
+
+  {
+    "mbbill/undotree",
+
+    event = {
+      "BufNewFile",
+      "BufReadPost",
+    },
+
+    config = function()
+      vim.g.undotree_WindowLayout = 4
+    end,
   },
 
   -- smart comments
@@ -216,6 +224,11 @@ return {
       "BufReadPost",
       "BufLeave",
     },
+
+    config = function()
+      vim.g.copilot_assume_mapped = true
+      vim.g.copilot_no_tab_map = true
+    end,
   },
 
   -- autopairs
@@ -248,18 +261,9 @@ return {
     end,
 
     dependencies = {
-      -- snippet engine
-      {
-        "L3MON4D3/LuaSnip",
-
-        config = function()
-          require("plugin.config.luasnip")
-        end,
-
-        dependencies = {
-          "rafamadriz/friendly-snippets",
-        },
-      },
+      -- snippets
+      "L3MON4D3/LuaSnip",
+      "rafamadriz/friendly-snippets",
 
       -- icons
       "onsails/lspkind.nvim",

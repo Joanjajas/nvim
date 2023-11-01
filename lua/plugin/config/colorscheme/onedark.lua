@@ -10,7 +10,7 @@ local options = {
 
   diagnostics = {
     background = false,
-    darker = false,
+    darker = true,
   },
 
   highlights = {

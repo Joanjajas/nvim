@@ -1,6 +1,20 @@
-local textobjects = require("nvim-treesitter.configs")
+local treesitter = require("nvim-treesitter.configs")
 
 local config = {
+  ensure_installed = {
+    "python",
+    "lua",
+    "rust",
+    "c",
+    "vim",
+    "vimdoc",
+    "bash",
+  },
+
+  highlight = {
+    enable = true,
+  },
+
   textobjects = {
     select = {
       enable = true,
@@ -25,4 +39,4 @@ local config = {
   },
 }
 
-textobjects.setup(config)
+treesitter.setup(config)
