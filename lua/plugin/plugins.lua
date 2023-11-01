@@ -158,20 +158,6 @@ return {
     opts = {},
   },
 
-  {
-    "mbbill/undotree",
-
-    event = {
-      "BufNewFile",
-      "BufReadPost",
-    },
-
-    config = function()
-      vim.g.undotree_WindowLayout = 3
-      vim.g.undotree_SetFocusWhenToggle = 1
-    end,
-  },
-
   -- smart comments
   {
     "numToStr/Comment.nvim",
@@ -312,6 +298,18 @@ return {
         build = "make",
       },
     },
+  },
+
+  -- undo on steroids
+  {
+    "mbbill/undotree",
+
+    cmd = "UndotreeToggle",
+
+    config = function()
+      vim.g.undotree_WindowLayout = 3
+      vim.g.undotree_SetFocusWhenToggle = 1
+    end,
   },
 
   -- install lsp servers, dap servers, linters, and formatters
