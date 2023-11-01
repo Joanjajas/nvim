@@ -21,17 +21,6 @@ return {
     end,
   },
 
-  -- statusline
-  {
-    "nvim-lualine/lualine.nvim",
-
-    event = "VimEnter",
-
-    config = function()
-      require("plugin.config.lualine")
-    end,
-  },
-
   -- tmux integration
   {
     "christoomey/vim-tmux-navigator",
@@ -47,6 +36,20 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+  },
+
+  -- statusline
+  {
+    "nvim-lualine/lualine.nvim",
+
+    event = {
+      "BufNewFile",
+      "BufReadPost",
+    },
+
+    config = function()
+      require("plugin.config.lualine")
+    end,
   },
 
   -- indent guides

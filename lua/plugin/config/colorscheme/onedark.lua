@@ -16,6 +16,8 @@ local options = {
   highlights = {
     NormalFloat = { bg = "none" },
     FloatBorder = { bg = "none" },
+    StatusLine = { bg = "none" },
+    StatusLineNC = { bg = "none" },
     TablineFill = { bg = "none" },
     TablineSel = { bg = "none", fg = "#61afef" },
     Tabline = { bg = "none" },
