@@ -168,8 +168,6 @@ return {
 
     config = function()
       vim.g.undotree_WindowLayout = 3
-      nooo
-      ajaja
       vim.g.undotree_SetFocusWhenToggle = 1
     end,
   },
