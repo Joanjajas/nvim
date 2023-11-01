@@ -21,7 +21,8 @@ map("x", "v", "<Esc>")
 map({ "n", "x", "t" }, "<leader>y", '"+y')
 
 -- exit insert mode
-map({ "i", "c", "s" }, "kj", "<Esc>")
+map({ "i", "s" }, "kj", "<Esc>")
+map("c", "kj", "<C-c>")
 map("t", "kj", "<C-\\><C-n>")
 
 -- close current window
