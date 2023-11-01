@@ -45,6 +45,7 @@ return {
     event = {
       "BufNewFile",
       "BufReadPost",
+      "BufLeave",
     },
 
     config = function()
@@ -209,7 +210,12 @@ return {
   -- copilot
   {
     "github/copilot.vim",
-    event = "InsertEnter",
+
+    event = {
+      "BufNewFile",
+      "BufReadPost",
+      "BufLeave",
+    },
   },
 
   -- autopairs
