@@ -1,7 +1,6 @@
 local nvimtree = require("nvim-tree")
 local api = require("nvim-tree.api")
 
--- TODO: change git info icons
 local config = {
   hijack_cursor = true,
 
@@ -23,10 +22,16 @@ local config = {
     root_folder_label = false,
 
     icons = {
+      git_placement = "after",
       glyphs = {
         git = {
-          unstaged = "",
+          unstaged = "!",
+          untracked = "?",
+          deleted = "x",
+          staged = "+",
           ignored = "",
+          unmerged = "",
+          renamed = "",
         },
       },
     },
