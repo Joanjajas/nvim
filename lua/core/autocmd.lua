@@ -1,10 +1,3 @@
--- open nvimtree on startup
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    require("nvim-tree.api").tree.toggle({ focus = false })
-  end,
-})
-
 -- format on save
 vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function()

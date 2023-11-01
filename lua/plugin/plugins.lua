@@ -1,15 +1,5 @@
 return {
-  -- colorscheme
-  {
-    "ellisonleao/gruvbox.nvim",
-
-    lazy = false,
-
-    config = function()
-      require("plugin.config.colorscheme.gruvbox")
-    end,
-  },
-
+  -- onedark colorscheme
   {
     "navarasu/onedark.nvim",
 
@@ -20,19 +10,15 @@ return {
     end,
   },
 
-  -- file explorer
+  -- gruvbox colorscheme
   {
-    "nvim-tree/nvim-tree.lua",
+    "ellisonleao/gruvbox.nvim",
 
-    event = "VimEnter",
+    lazy = false,
 
     config = function()
-      require("plugin.config.nvimtree")
+      require("plugin.config.colorscheme.gruvbox")
     end,
-
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
   },
 
   -- statusline
@@ -52,15 +38,15 @@ return {
     event = "VimEnter",
   },
 
-  -- copilot
+  -- add and switch between project files
   {
-    "github/copilot.vim",
+    "ThePrimeagen/harpoon",
 
-    -- NOTE: If this event is set to BufRead or similar the plugin will pause
-    -- neovim when opening a file using telescope until is loaded producing an
-    -- annoying delay on the first file opened. But it only happens in insert
-    -- mode inside the telescope window.
     event = "VimEnter",
+
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
   },
 
   -- indent guides
@@ -217,18 +203,10 @@ return {
     end,
   },
 
-  -- add and switch between project files
+  -- copilot
   {
-    "ThePrimeagen/harpoon",
-
-    event = {
-      "BufNewFile",
-      "BufReadPost",
-    },
-
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
+    "github/copilot.vim",
+    event = "InsertEnter",
   },
 
   -- autopairs
@@ -284,6 +262,21 @@ return {
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
+    },
+  },
+
+  -- file explorer
+  {
+    "nvim-tree/nvim-tree.lua",
+
+    cmd = "NvimTreeToggle",
+
+    config = function()
+      require("plugin.config.nvimtree")
+    end,
+
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
     },
   },
 
