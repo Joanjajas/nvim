@@ -67,7 +67,7 @@ map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
 -- github copilot
-map("i", "<C-n>", "copilot#Accept()", { expr = true, replace_keycodes = false })
+map("i", "<C-n>", "copilot#Accept()", { expr = true, replace_keycodes = false, silent = true })
 
 -- telescope
 map("n", "<leader>ttl", "<cmd>Telescope<CR>")
