@@ -2,6 +2,7 @@ local mason = require("mason")
 
 local mason_config = {
   PATH = "skip",
+  sdfdsfs,
 }
 
 local ensure_installed = {

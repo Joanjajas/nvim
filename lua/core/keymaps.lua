@@ -49,6 +49,9 @@ map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>')
 -- toggle nvimtree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
 
+-- toggle undotree
+map("n", "<leader>ut", "<cmd>UndotreeToggle<CR>")
+
 -- stop search highlighting
 map("n", "<Esc>", "<cmd>noh<CR>")
 
@@ -154,9 +157,6 @@ end)
 map("n", "<leader>lgN", function()
   vim.diagnostic.goto_prev()
 end)
-
--- undo tree
-map("n", "<leader>ut", "<cmd>UndotreeToggle<CR>")
 
 -- comments
 map("n", "<leader>cm", function()
