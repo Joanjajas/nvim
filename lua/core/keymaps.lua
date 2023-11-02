@@ -132,6 +132,7 @@ end)
 map("n", "<leader>lgd", "<cmd>Telescope lsp_definitions<CR>")
 map("n", "<leader>lgr", "<cmd>Telescope lsp_references<CR>")
 map("n", "<leader>lds", "<cmd>Telescope lsp_document_symbols<CR>")
+map("n", "<leader>lws", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
 map("n", "<leader>ldg", "<cmd>Telescope diagnostics<CR>")
 
 map("n", "<leader>lrn", function()
