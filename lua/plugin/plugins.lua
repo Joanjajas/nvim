@@ -21,17 +21,6 @@ return {
     end,
   },
 
-  -- switch betwwen marked project files
-  {
-    "ThePrimeagen/harpoon",
-
-    event = "VimEnter",
-
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-  },
-
   -- tmux integration
   {
     "christoomey/vim-tmux-navigator",
@@ -329,5 +318,14 @@ return {
     config = function()
       require("plugin.config.mason")
     end,
+  },
+
+  -- switch betwwen marked project files
+  {
+    "ThePrimeagen/harpoon",
+
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
   },
 }
