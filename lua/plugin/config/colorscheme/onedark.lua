@@ -21,7 +21,6 @@ local options = {
     TablineFill = { bg = "none" },
     TablineSel = { bg = "none", fg = "#61afef" },
     Tabline = { bg = "none" },
-    ColorColumn = { bg = "#111111 " },
   },
 }
 
