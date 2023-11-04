@@ -99,8 +99,11 @@ map("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
 map("n", "<leader>gnh", "<cmd>Gitsigns next_hunk<CR>")
 map("n", "<leader>gNh", "<cmd>Gitsigns prev_hunk<CR>")
 map("n", "<leader>gph", "<cmd>Gitsigns preview_hunk<CR>")
+map("n", "<leader>grb", "<cmd>Gitsigns reset_buffer<CR>")
 map("n", "<leader>grh", "<cmd>Gitsigns reset_hunk<CR>")
 map("n", "<leader>gtd", "<cmd>Gitsigns toggle_deleted<CR>")
+map("n", "<leader>gbl", "<cmd>Gitsigns blame_line<CR>")
+map("n", "<leader>gsc", "<cmd>Gitsigns select_chunk<CR>")
 
 -- harpoon
 map("n", "<leader>ha", function()
