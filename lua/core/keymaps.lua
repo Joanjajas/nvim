@@ -22,7 +22,7 @@ map("x", "K", ":move '<-2<CR>gv-gv")
 map("x", "v", "<Esc>")
 
 -- copy to system clipboard
-map({ "n", "x", "t" }, "<leader>y", '"+y')
+map({ "n", "x" }, "<leader>y", '"+y')
 
 -- exit insert mode
 map({ "i", "s" }, "kj", "<Esc>")
