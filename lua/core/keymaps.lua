@@ -7,6 +7,9 @@ g.mapleader = " "
 -- save current buffer
 map("n", "<leader>s", "<cmd>update<CR>")
 
+-- run last command
+map("n", "<leader>:", "<cmd>execute @:<CR>")
+
 -- move between quickfix list items
 map("n", "<leader>n", "<cmd>cnext<CR>")
 map("n", "<leader>p", "<cmd>cprev<CR>")
@@ -103,7 +106,10 @@ map("n", "<leader>grb", "<cmd>Gitsigns reset_buffer<CR>")
 map("n", "<leader>grh", "<cmd>Gitsigns reset_hunk<CR>")
 map("n", "<leader>gtd", "<cmd>Gitsigns toggle_deleted<CR>")
 map("n", "<leader>gbl", "<cmd>Gitsigns blame_line<CR>")
-map("n", "<leader>gsc", "<cmd>Gitsigns select_chunk<CR>")
+map("n", "<leader>gvc", "<cmd>Gitsigns select_hunk<CR>")
+map("n", "<leader>gsh", "<cmd>Gitsigns stage_hunk<CR>")
+map("n", "<leader>gsb", "<cmd>Gitsigns stage_buffer<CR>")
+map("n", "<leader>gpi", "<cmd>Gitsigns preview_hunk_inline<CR>")
 
 -- harpoon
 map("n", "<leader>ha", function()
