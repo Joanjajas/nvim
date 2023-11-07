@@ -10,6 +10,7 @@ local ensure_installed = {
   "rust-analyzer",
   "pyright",
   "bash-language-server",
+  "clangd",
 
   -- formatters
   "stylua",
