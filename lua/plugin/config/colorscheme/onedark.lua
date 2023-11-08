@@ -21,6 +21,7 @@ local options = {
     TablineFill = { bg = "none" },
     TablineSel = { bg = "none", fg = "#61afef" },
     Tabline = { bg = "none" },
+    TreesitterContext = { bg = "#21283b" },
   },
 }
 
