@@ -119,7 +119,7 @@ return {
 
   -- manage code formatters
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
 
     event = {
       "BufNewFile",
