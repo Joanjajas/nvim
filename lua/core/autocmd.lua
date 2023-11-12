@@ -11,3 +11,13 @@ vim.api.nvim_create_autocmd("BufEnter", {
     vim.opt.formatoptions:remove({ "c", "r", "o" })
   end,
 })
+
+-- open nvimtree on startup when opening a directory
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.fn.isdirectory(vim.fn.expand("%")) ~= 0 then
+      require("nvim-tree.api").tree.open()
+    end
+  end,
+})
