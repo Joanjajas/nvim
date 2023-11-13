@@ -20,6 +20,7 @@ local options = {
     StatusLineNC = { bg = "none" },
     TablineFill = { bg = "none" },
     TablineSel = { bg = "none", fg = "#61afef" },
+    ColorColumn = { bg = "#101010" },
     Tabline = { bg = "none" },
   },
 }

@@ -5,6 +5,7 @@ opt.hlsearch = false
 opt.rnu = true
 opt.showmode = false
 opt.termguicolors = true
+opt.colorcolumn = "80"
 opt.scrolloff = 7
 opt.sidescrolloff = 7
 opt.expandtab = true
