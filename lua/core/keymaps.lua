@@ -26,6 +26,7 @@ map("x", "v", "<Esc>")
 
 -- copy to system clipboard
 map({ "n", "x" }, "<leader>y", '"+y')
+map({ "n", "x" }, "<M-c>", '"+y')
 
 -- exit insert mode
 map({ "i", "s" }, "kj", "<Esc>")
