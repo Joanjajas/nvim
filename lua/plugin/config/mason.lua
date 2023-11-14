@@ -1,6 +1,6 @@
 local mason = require("mason")
 
-local mason_config = {
+local config = {
   PATH = "skip",
 }
 
@@ -26,4 +26,4 @@ vim.api.nvim_create_user_command("MasonInstallAll", function()
   vim.cmd("MasonInstall " .. table.concat(ensure_installed, " "))
 end, {})
 
-mason.setup(mason_config)
+mason.setup(config)
