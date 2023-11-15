@@ -184,20 +184,6 @@ return {
     end,
   },
 
-  -- colorizer
-  {
-    "norcalli/nvim-colorizer.lua",
-
-    event = {
-      "BufNewFile",
-      "BufReadPost",
-    },
-
-    config = function()
-      require("plugin.config.colorizer")
-    end,
-  },
-
   -- copilot
   {
     "github/copilot.vim",
