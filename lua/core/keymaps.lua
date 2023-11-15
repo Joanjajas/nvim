@@ -180,3 +180,9 @@ map("v", "<leader>cm", function()
   vim.api.nvim_feedkeys(esc, "nx", false)
   require("Comment.api").toggle.linewise(vim.fn.visualmode())
 end)
+
+-- leap
+map("n", "<leader>l", "<Plug>(leap-forward-to)")
+map("n", "<leader>L", "<Plug>(leap-backward-to)")
+map("x", "<leader>l", "<Plug>(leap-forward-till)")
+map("x", "<leader>L", "<Plug>(leap-backward-till)")

@@ -147,6 +147,13 @@ return {
     opts = {},
   },
 
+  -- motion
+  {
+    "ggandor/leap.nvim",
+    lazy = false,
+    opts = {},
+  },
+
   -- smart comments
   {
     "numToStr/Comment.nvim",
