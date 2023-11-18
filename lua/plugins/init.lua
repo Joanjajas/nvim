@@ -33,8 +33,6 @@ return {
   {
     "nvim-telescope/telescope.nvim",
 
-    -- cmd = "Telescope",
-
     config = function()
       require("plugins.config.telescope")
     end,
@@ -286,7 +284,12 @@ return {
   -- jump to any location in the buffer
   {
     "ggandor/leap.nvim",
-    lazy = false,
+
+    event = {
+      "BufNewFile",
+      "BufReadPost",
+    },
+
     opts = {},
   },
 
