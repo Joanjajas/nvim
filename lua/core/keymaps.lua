@@ -177,6 +177,11 @@ map_plugin("gitsigns", "gsh", "stage_hunk")
 map_plugin("gitsigns", "gsb", "stage_buffer")
 map_plugin("gitsigns", "gpi", "preview_hunk_inline")
 
+map("n", "<leader>gts", function()
+  require("gitsigns").toggle_signs()
+  require("gitsigns").toggle_numhl()
+end)
+
 --------------------------------------------------------------------------------
 -- harpoon
 --------------------------------------------------------------------------------
