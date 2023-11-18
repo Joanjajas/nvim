@@ -92,6 +92,8 @@ return {
       "folke/neodev.nvim",
       "ray-x/lsp_signature.nvim",
       "nvimdev/lspsaga.nvim",
+      "nvimtools/none-ls.nvim",
+      "williamboman/mason.nvim",
     },
   },
 
@@ -101,7 +103,6 @@ return {
 
     cmd = {
       "MasonInstall",
-      "MasonInstallAll",
       "MasonUninstall",
       "MasonUninstallAll",
       "MasonLog",
@@ -111,6 +112,11 @@ return {
     config = function()
       require("plugins.config.mason")
     end,
+
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      "jay-babu/mason-null-ls.nvim",
+    },
   },
 
   -- manage code formatters as lsp sources

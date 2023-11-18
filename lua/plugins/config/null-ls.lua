@@ -2,7 +2,7 @@ local null_ls = require("null-ls")
 
 local builtin = null_ls.builtins
 
-local config = {
+local null_ls_config = {
   sources = {
     builtin.formatting.stylua,
     builtin.formatting.black,
@@ -11,4 +11,4 @@ local config = {
   },
 }
 
-null_ls.setup(config)
+null_ls.setup(null_ls_config)
