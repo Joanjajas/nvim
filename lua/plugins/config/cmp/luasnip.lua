@@ -1,6 +1,6 @@
 local luasnip = require("luasnip")
 
--- forget the current snippet when leaving the insert mode
+-- forget the current snippet when leaving insert mode
 local unlinkgrp =
   vim.api.nvim_create_augroup("UnlinkSnippetOnModeChange", { clear = true })
 

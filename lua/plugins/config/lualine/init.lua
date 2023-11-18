@@ -1,5 +1,4 @@
 local lualine = require("lualine")
-
 local component = require("plugins.config.lualine.component")
 
 local config = {
