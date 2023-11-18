@@ -185,7 +185,7 @@ end)
 --------------------------------------------------------------------------------
 -- harpoon
 --------------------------------------------------------------------------------
-map_plugin("harpoon_mark", "ha", "add_file")
+map_plugin("harpoon.mark", "ha", "add_file")
 map_plugin("harpoon.ui", "hf", "toggle_quick_menu")
 map_plugin("harpoon.ui", "hn", "nav_next")
 map_plugin("harpoon.ui", "hp", "nav_prev")
