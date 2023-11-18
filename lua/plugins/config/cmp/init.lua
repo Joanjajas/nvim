@@ -1,5 +1,3 @@
-require("plugin.config.cmp.luasnip")
-
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 local autopairs = require("nvim-autopairs.completion.cmp")

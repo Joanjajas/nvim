@@ -1,76 +1,74 @@
 local map = vim.keymap.set
-local g = vim.g
+
+local function map_plugin(plugin, keys, command, args)
+  map("n", "<leader>" .. keys, function()
+    require(plugin)[command](args)
+  end)
+end
 
 -- set leader key
-g.mapleader = " "
+vim.g.mapleader = " "
+
+--------------------------------------------------------------------------------
+-- insert mode
+--------------------------------------------------------------------------------
+
+-- exit insert mode
+map({ "i", "s" }, "kj", "<Esc>")
+
+--------------------------------------------------------------------------------
+-- normal mode
+--------------------------------------------------------------------------------
 
 -- save current buffer
 map("n", "<leader>s", "<cmd>update<CR>")
 
--- run last command
-map("n", "<leader>:", "<cmd>execute @:<CR>")
-
--- move between quickfix list items
-map("n", "<leader>n", "<cmd>cnext<CR>")
-map("n", "<leader>p", "<cmd>cprev<CR>")
-
 -- replace word under cursor in whole file
 map("n", "<leader>rn", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>")
-
--- move visual selections
-map("x", "J", ":move '>+1<CR>gv-gv")
-map("x", "K", ":move '<-2<CR>gv-gv")
-
--- exit visual mode
-map("x", "v", "<Esc>")
-
--- copy to system clipboard
-map({ "n", "x" }, "<leader>y", '"+y')
-map({ "n", "x" }, "<leader>Y", 'V"+y')
-map({ "n", "x" }, "<M-y>", '"+y')
-
--- exit insert mode
-map({ "i", "s" }, "kj", "<Esc>")
-map("c", "kj", "<C-c>")
-map("t", "kj", "<C-\\><C-n>")
-
--- close current window
-map("n", "<BS>", "<cmd>silent! q!<CR>")
-
--- jump half page up/down
-map("n", "<C-u>", "<C-u>zz")
-map("n", "<C-d>", "<C-d>zz")
-
--- jump to next search result
-map("n", "n", "nzz")
-map("n", "N", "Nzz")
-
--- open terminal in new tab
-map("n", "<leader>tm", "<cmd>tabe | setlocal norelativenumber | term<CR>")
-
--- don't copy the replaced text after pasting in visual mode
-map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>')
-
--- toggle nvimtree
-map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
-
--- toggle undotree
-map("n", "<leader>ut", "<cmd>UndotreeToggle<CR>")
 
 -- stop search highlighting
 map("n", "<Esc>", "<cmd>noh<CR>")
 
--- allow moving the cursor through wrapped lines
-map("n", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
-map("n", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
-map("x", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
-map("x", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
+-- close current window
+map("n", "<BS>", "<cmd>silent! q!<CR>")
 
--- navigate within insert mode
-map("i", "<C-h>", "<Left>")
-map("i", "<C-j>", "<Down>")
-map("i", "<C-k>", "<Up>")
-map("i", "<C-l>", "<Right>")
+--------------------------------------------------------------------------------
+-- visual mode
+--------------------------------------------------------------------------------
+
+-- exit visual mode
+map("x", "v", "<Esc>")
+
+-- don't copy the replaced text after pasting in visual mode
+map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>')
+
+--------------------------------------------------------------------------------
+-- terminal mode
+--------------------------------------------------------------------------------
+
+-- open terminal in new tab
+map("n", "<leader>tm", "<cmd>tabe | setlocal norelativenumber | term<CR>")
+
+-- exit terminal mode
+map("t", "kj", "<C-\\><C-n>")
+
+--------------------------------------------------------------------------------
+-- command mode
+--------------------------------------------------------------------------------
+
+-- run last command
+map("n", "<leader>:", "<cmd>execute @:<CR>")
+
+-- exit command mode
+map("c", "kj", "<C-c>")
+
+--------------------------------------------------------------------------------
+-- motion
+--------------------------------------------------------------------------------
+
+-- jump to next search result
+map("n", "n", "nzz")
+map("n", "N", "Nzz")
 
 -- move around splits using Ctrl + { h,j,k,l }
 map("n", "<C-h>", "<C-w>h")
@@ -78,73 +76,120 @@ map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
--- github copilot
-map("i", "<C-n>", "copilot#Accept()", { expr = true, replace_keycodes = false, silent = true })
+-- navigate within insert mode
+map("i", "<C-h>", "<Left>")
+map("i", "<C-j>", "<Down>")
+map("i", "<C-k>", "<Up>")
+map("i", "<C-l>", "<Right>")
 
+-- jump half page up/down
+map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz")
+
+-- move visual selections
+map("x", "J", ":move '>+1<CR>gv-gv")
+map("x", "K", ":move '<-2<CR>gv-gv")
+
+-- move between quickfix list items
+map("n", "<leader>n", "<cmd>cnext<CR>")
+map("n", "<leader>p", "<cmd>cprev<CR>")
+
+-- allow moving the cursor through wrapped lines
+map("n", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
+map("n", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
+map("x", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
+map("x", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
+
+--------------------------------------------------------------------------------
+-- copy
+--------------------------------------------------------------------------------
+
+-- copy to system clipboard
+map({ "n", "x" }, "<leader>y", '"+y')
+map({ "n", "x" }, "<leader>Y", 'V"+y')
+map({ "n", "x" }, "<M-y>", '"+y')
+
+--------------------------------------------------------------------------------
+-- copilot
+--------------------------------------------------------------------------------
+map(
+  "i",
+  "<C-n>",
+  "copilot#Accept()",
+  { expr = true, replace_keycodes = false, silent = true }
+)
+
+--------------------------------------------------------------------------------
+-- nvimtree
+--------------------------------------------------------------------------------
+map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
+
+--------------------------------------------------------------------------------
+-- undotree
+--------------------------------------------------------------------------------
+map("n", "<leader>ut", "<cmd>UndotreeToggle<CR>")
+
+--------------------------------------------------------------------------------
 -- telescope
-map("n", "<leader>ttl", "<cmd>Telescope<CR>")
-map("n", "<leader>tfa", "<cmd>Telescope find_files no_ignore=true hidden=true<CR>")
-map("n", "<leader>tff", "<cmd>Telescope find_files<CR>")
-map("n", "<leader>tfr", "<cmd>Telescope oldfiles<CR>")
-map("n", "<leader>tbf", "<cmd>Telescope buffers<CR>")
-map("n", "<leader>trg", "<cmd>Telescope live_grep<CR>")
-map("n", "<leader>tth", "<cmd>Telescope colorscheme<CR>")
-map("n", "<leader>tgs", "<cmd>Telescope git_status<CR>")
-map("n", "<leader>tgc", "<cmd>Telescope git_commits<CR>")
-map("n", "<leader>tcm", "<cmd>Telescope commands<CR>")
-map("n", "<leader>tch", "<cmd>Telescope command_history<CR>")
-map("n", "<leader>tgb", "<cmd>Telescope git_branches<CR>")
-map("n", "<leader>thg", "<cmd>Telescope highlights<CR>")
-map("n", "<leader>thl", "<cmd>Telescope help_tags<CR>")
-map("n", "<leader>tkm", "<cmd>Telescope keymaps<CR>")
+--------------------------------------------------------------------------------
+local telescope = "telescope.builtin"
+
+map_plugin(telescope, "ttl", "builtin")
+map_plugin(telescope, "tff", "find_files")
+map_plugin(telescope, "tfr", "oldfiles")
+map_plugin(telescope, "tbf", "buffers")
+map_plugin(telescope, "trg", "live_grep")
+map_plugin(telescope, "tth", "colorscheme")
+map_plugin(telescope, "tgs", "git_status")
+map_plugin(telescope, "tgc", "git_commits")
+map_plugin(telescope, "tcm", "commands")
+map_plugin(telescope, "tch", "command_history")
+map_plugin(telescope, "tgb", "git_branches")
+map_plugin(telescope, "thg", "highlights")
+map_plugin(telescope, "thl", "help_tags")
+map_plugin(telescope, "tkm", "keymaps")
+map_plugin(telescope, "/", "current_buffer_fuzzy_find")
+map_plugin(telescope, "tfa", "find_files", { no_ignore = true, hidden = true })
+
 map("n", "<leader>ttc", "<cmd>TodoTelescope<CR>")
-map("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
 
+--------------------------------------------------------------------------------
 -- gitsigns
-map("n", "<leader>gnh", "<cmd>Gitsigns next_hunk<CR>")
-map("n", "<leader>gNh", "<cmd>Gitsigns prev_hunk<CR>")
-map("n", "<leader>gph", "<cmd>Gitsigns preview_hunk<CR>")
-map("n", "<leader>grb", "<cmd>Gitsigns reset_buffer<CR>")
-map("n", "<leader>grh", "<cmd>Gitsigns reset_hunk<CR>")
-map("n", "<leader>gtd", "<cmd>Gitsigns toggle_deleted<CR>")
-map("n", "<leader>gbl", "<cmd>Gitsigns blame_line<CR>")
-map("n", "<leader>gvc", "<cmd>Gitsigns select_hunk<CR>")
-map("n", "<leader>gsh", "<cmd>Gitsigns stage_hunk<CR>")
-map("n", "<leader>gsb", "<cmd>Gitsigns stage_buffer<CR>")
-map("n", "<leader>gpi", "<cmd>Gitsigns preview_hunk_inline<CR>")
+--------------------------------------------------------------------------------
+map_plugin("gitsigns", "gnh", "next_hunk")
+map_plugin("gitsigns", "gNh", "prev_hunk")
+map_plugin("gitsigns", "gph", "preview_hunk")
+map_plugin("gitsigns", "grb", "reset_buffer")
+map_plugin("gitsigns", "grh", "reset_hunk")
+map_plugin("gitsigns", "gtd", "toggle_deleted")
+map_plugin("gitsigns", "gbl", "blame_line")
+map_plugin("gitsigns", "gvc", "select_hunk")
+map_plugin("gitsigns", "gsh", "stage_hunk")
+map_plugin("gitsigns", "gsb", "stage_buffer")
+map_plugin("gitsigns", "gpi", "preview_hunk_inline")
 
+--------------------------------------------------------------------------------
 -- harpoon
-map("n", "<leader>ha", function()
-  require("harpoon.mark").add_file()
-end)
-map("n", "<leader>hf", function()
-  require("harpoon.ui").toggle_quick_menu()
-end)
-map("n", "<leader>hn", function()
-  require("harpoon.ui").nav_next()
-end)
-map("n", "<leader>hp", function()
-  require("harpoon.ui").nav_prev()
-end)
-map("n", "<leader>h1", function()
-  require("harpoon.ui").nav_file(1)
-end)
-map("n", "<leader>h2", function()
-  require("harpoon.ui").nav_file(2)
-end)
-map("n", "<leader>h3", function()
-  require("harpoon.ui").nav_file(3)
-end)
-map("n", "<leader>h4", function()
-  require("harpoon.ui").nav_file(4)
-end)
+--------------------------------------------------------------------------------
+map_plugin("harpoon_mark", "ha", "add_file")
+map_plugin("harpoon.ui", "hf", "toggle_quick_menu")
+map_plugin("harpoon.ui", "hn", "nav_next")
+map_plugin("harpoon.ui", "hp", "nav_prev")
+map_plugin("harpoon.ui", "h1", "nav_file", 1)
+map_plugin("harpoon.ui", "h2", "nav_file", 2)
+map_plugin("harpoon.ui", "h3", "nav_file", 3)
+map_plugin("harpoon.ui", "h4", "nav_file", 4)
 
+--------------------------------------------------------------------------------
 -- lsp
-map("n", "<leader>lgd", "<cmd>Telescope lsp_definitions<CR>")
-map("n", "<leader>lgr", "<cmd>Telescope lsp_references<CR>")
-map("n", "<leader>lds", "<cmd>Telescope lsp_document_symbols<CR>")
-map("n", "<leader>lws", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
-map("n", "<leader>ldg", "<cmd>Telescope diagnostics<CR>")
+--------------------------------------------------------------------------------
+local telescope = "telescope.builtin"
+
+map_plugin(telescope, "lgd", "lsp_definitions")
+map_plugin(telescope, "lgr", "lsp_references")
+map_plugin(telescope, "lds", "lsp_document_symbols")
+map_plugin(telescope, "lws", "lsp_dynamic_workspace_symbols")
+map_plugin(telescope, "ldg", "diagnostics")
 
 map("n", "<leader>lrn", function()
   vim.lsp.buf.rename()
@@ -170,7 +215,9 @@ map("n", "<leader>lgN", function()
   vim.diagnostic.goto_prev()
 end)
 
+--------------------------------------------------------------------------------
 -- comments
+--------------------------------------------------------------------------------
 map("n", "<leader>cm", function()
   require("Comment.api").toggle.linewise.current()
 end)
@@ -181,7 +228,9 @@ map("v", "<leader>cm", function()
   require("Comment.api").toggle.linewise(vim.fn.visualmode())
 end)
 
+--------------------------------------------------------------------------------
 -- leap
+--------------------------------------------------------------------------------
 map("n", "<leader>l", "<Plug>(leap-forward-to)")
 map("n", "<leader>L", "<Plug>(leap-backward-to)")
 map("x", "<leader>l", "<Plug>(leap-forward-till)")

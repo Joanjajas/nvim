@@ -1,11 +1,17 @@
 local opt = vim.opt
 
+local colorscheme = pcall(vim.cmd.colorscheme, "onedark")
+
+if not colorscheme then
+  vim.cmd.colorscheme("habamax")
+end
+
 opt.guicursor = ""
 opt.hlsearch = false
 opt.rnu = true
 opt.showmode = false
 opt.termguicolors = true
-opt.colorcolumn = "80"
+opt.colorcolumn = "81"
 opt.scrolloff = 7
 opt.sidescrolloff = 7
 opt.expandtab = true

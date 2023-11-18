@@ -17,7 +17,7 @@ local color = {
 
 M.mode = {
   function()
-    local mode_name = require("plugin.config.lualine.mode").name
+    local mode_name = require("plugins.config.lualine.mode").name
     local mode = vim.api.nvim_get_mode().mode
 
     if mode_name[mode] == nil then
@@ -28,7 +28,7 @@ M.mode = {
   end,
 
   color = function()
-    local mode_color = require("plugin.config.lualine.mode").color
+    local mode_color = require("plugins.config.lualine.mode").color
     local mode = vim.api.nvim_get_mode().mode
 
     return { fg = mode_color[mode] }
@@ -53,7 +53,13 @@ M.lsp_progress = {
     local spinners = { "⣷", "⣯", "⣟", "⡿", "⢿", "⣻", "⣽", "⣾" }
     local ms = vim.loop.hrtime() / 1000000
     local frame = math.floor(ms / 120) % #spinners
-    local content = string.format(" %%<%s %s %s (%s%%%%) ", spinners[frame + 1], title, msg, percentage)
+    local content = string.format(
+      " %%<%s %s %s (%s%%%%) ",
+      spinners[frame + 1],
+      title,
+      msg,
+      percentage
+    )
 
     return content or ""
   end,

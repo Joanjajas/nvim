@@ -1,6 +1,6 @@
-require("plugin.config.lsp.lspsaga")
-require("plugin.config.lsp.signature")
-require("plugin.config.lsp.servers")
+require("plugins.config.lsp.lspsaga")
+require("plugins.config.lsp.signature")
+require("plugins.config.lsp.servers")
 require("neodev").setup()
 
 vim.diagnostic.config({
