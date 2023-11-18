@@ -3,5 +3,5 @@
 ## Installation
 
 ```bash
-git clone https://github.com/joanjajas/nvim && nvim setup
+git clone https://github.com/joanjajas/nvim ~/.config/nvim && nvim welcome.txt
 ```
