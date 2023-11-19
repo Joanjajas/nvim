@@ -1,4 +1,3 @@
-require("plugins.config.lsp.lspsaga")
 require("plugins.config.lsp.signature")
 require("plugins.config.lsp.servers")
 require("neodev").setup()

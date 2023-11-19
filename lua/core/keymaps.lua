@@ -245,7 +245,7 @@ end)
 --------------------------------------------------------------------------------
 -- leap
 --------------------------------------------------------------------------------
-map("n", "<leader>l", "<Plug>(leap-forward-to)")
-map("n", "<leader>L", "<Plug>(leap-backward-to)")
-map("x", "<leader>l", "<Plug>(leap-forward-till)")
-map("x", "<leader>L", "<Plug>(leap-backward-till)")
+map("n", "<leader>j", "<Plug>(leap-forward-to)")
+map("n", "<leader>J", "<Plug>(leap-backward-to)")
+map("x", "<leader>j", "<Plug>(leap-forward-till)")
+map("x", "<leader>J", "<Plug>(leap-backward-till)")
