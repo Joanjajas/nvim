@@ -11,6 +11,7 @@ local config = {
   overrides = {
     Tabline = { bg = "none" },
     TablineFill = { bg = "none" },
+    TablineSel = { bg = "none" },
   },
 }
 

@@ -1,8 +1,10 @@
 local lualine = require("lualine")
 local component = require("plugins.config.lualine.component")
+local theme = require("plugins.config.lualine.theme")
 
 local config = {
   options = {
+    theme = theme,
     globalstatus = true,
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },

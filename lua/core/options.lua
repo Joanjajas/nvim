@@ -13,7 +13,6 @@ end
 -- general options
 --------------------------------------------------------------------------------
 opt.guicursor = ""
-opt.hlsearch = false
 opt.rnu = true
 opt.showmode = false
 opt.termguicolors = true
