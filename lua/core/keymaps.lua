@@ -118,10 +118,10 @@ map({ "n", "x" }, "<leader>y", '"+y')
 map({ "n", "x" }, "<M-y>", '"+y')
 
 -- copy file content to system clipboard
-map({ "n", "x" }, "<leader>ygg", "<cmd>%y+<CR>")
+map({ "n", "x" }, "<leader>gy", "<cmd>%y+<CR>")
 
 -- copy file content
-map({ "n", "x" }, "ygg", "<cmd>%y<CR>")
+map({ "n", "x" }, "gy", "<cmd>%y<CR>")
 
 --------------------------------------------------------------------------------
 -- copilot

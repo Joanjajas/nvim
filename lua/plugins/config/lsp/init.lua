@@ -9,7 +9,7 @@ vim.diagnostic.config({
 })
 
 -- diagnostics icons
-local icons = { Error = "", Warn = "", Hint = "", Info = "" }
+local icons = { Error = "", Warn = "", Hint = "", Info = "" }
 
 -- change diagnostic icons in the sign column
 for type, icon in pairs(icons) do

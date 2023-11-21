@@ -15,41 +15,17 @@ local color = {
   black = "#000000",
 }
 
-M.mode = {
-  function()
-    local mode_name = require("plugins.config.lualine.mode").name
-    local mode = vim.api.nvim_get_mode().mode
-
-    if mode_name[mode] == nil then
-      return mode
-    end
-
-    return mode_name[mode]
-  end,
-
-  color = function()
-    local mode_color = require("plugins.config.lualine.mode").color
-    local mode = vim.api.nvim_get_mode().mode
-
-    return { fg = mode_color[mode] }
-  end,
-}
-
 M.lsp_progress = {
   function()
-    if not rawget(vim, "lsp") then
+    local lsp = vim.lsp.util.get_progress_messages()[1]
+
+    if vim.o.columns < 120 or not lsp then
       return ""
     end
 
-    local Lsp = vim.lsp.util.get_progress_messages()[1]
-
-    if vim.o.columns < 120 or not Lsp then
-      return ""
-    end
-
-    local msg = Lsp.message or ""
-    local percentage = Lsp.percentage or 0
-    local title = Lsp.title or ""
+    local msg = lsp.message or ""
+    local percentage = lsp.percentage or 0
+    local title = lsp.title or ""
     local spinners = { "⣷", "⣯", "⣟", "⡿", "⢿", "⣻", "⣽", "⣾" }
     local ms = vim.loop.hrtime() / 1000000
     local frame = math.floor(ms / 120) % #spinners
@@ -121,11 +97,11 @@ M.copilot = {
 
     for _, client in ipairs(clients) do
       if client.name == "copilot" then
-        return "Copilot "
+        return "Copilot "
       end
     end
 
-    return "Copilot "
+    return "Copilot "
   end,
 
   color = { fg = color.yellow },
@@ -139,7 +115,7 @@ M.branch = {
 
 M.diagnostics = {
   "diagnostics",
-  symbols = { error = " ", warn = " ", hint = " ", info = " " },
+  symbols = { error = " ", warn = " ", hint = " ", info = " " },
 }
 
 M.fileformat = {
