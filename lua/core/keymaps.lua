@@ -113,10 +113,15 @@ map("x", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 -- copy
 --------------------------------------------------------------------------------
 
--- copy to system clipboard
+-- copy selection to system clipboard
 map({ "n", "x" }, "<leader>y", '"+y')
-map({ "n", "x" }, "<leader>Y", 'V"+y')
 map({ "n", "x" }, "<M-y>", '"+y')
+
+-- copy file content to system clipboard
+map({ "n", "x" }, "<leader>ygg", "<cmd>%y+<CR>")
+
+-- copy file content
+map({ "n", "x" }, "ygg", "<cmd>%y<CR>")
 
 --------------------------------------------------------------------------------
 -- copilot

@@ -9,6 +9,9 @@ if not colorscheme then
   vim.cmd.colorscheme("habamax")
 end
 
+vim.cmd("hi StatusLine guibg=none")
+vim.cmd("hi StatusLineNC guibg=none")
+
 --------------------------------------------------------------------------------
 -- general options
 --------------------------------------------------------------------------------
