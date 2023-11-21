@@ -18,7 +18,6 @@ local config = {
     lualine_a = {},
     lualine_b = {},
     lualine_c = {
-      "mode",
       component.branch,
       "filename",
       "diff",
@@ -26,15 +25,12 @@ local config = {
 
     lualine_x = {
       component.lsp_clients,
-      component.formatter,
       component.diagnostics,
+      component.formatter,
       "%=",
       component.copilot,
       "%=",
       "location",
-      "filetype",
-      component.encoding,
-      component.fileformat,
     },
 
     lualine_y = {},
