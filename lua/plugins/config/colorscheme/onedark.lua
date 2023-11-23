@@ -1,6 +1,6 @@
 local onedark = require("onedark")
 
-local options = {
+local config = {
   style = "deep",
   transparent = true,
 
@@ -19,4 +19,4 @@ local options = {
   },
 }
 
-onedark.setup(options)
+onedark.setup(config)
