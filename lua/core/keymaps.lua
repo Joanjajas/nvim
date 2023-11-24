@@ -34,10 +34,10 @@ map("n", "<BS>", "<cmd>silent! q!<CR>")
 
 -- toggle colorcolumn
 map("n", "<leader>cc", function()
-  if vim.wo.colorcolumn == "0" then
-    vim.wo.colorcolumn = "81"
-  else
+  if vim.wo.colorcolumn == "81" then
     vim.wo.colorcolumn = "0"
+  else
+    vim.wo.colorcolumn = "81"
   end
 end)
 

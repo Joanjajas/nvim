@@ -10,12 +10,13 @@ local config = {
   },
 
   highlights = {
+    Tabline = { bg = "none" },
+    TablineFill = { bg = "none" },
     NormalFloat = { bg = "none" },
     FloatBorder = { bg = "none" },
-    TablineFill = { bg = "none" },
-    TablineSel = { bg = "none", fg = "#61afef" },
     ColorColumn = { bg = "#161616" },
-    Tabline = { bg = "none" },
+    TablineSel = { bg = "none", fg = "#61afef" },
+    DiagnosticUnnecessary = { fg = "none" },
   },
 }
 
