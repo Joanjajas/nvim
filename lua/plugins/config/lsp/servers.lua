@@ -13,7 +13,15 @@ local handlers = {
 }
 
 -- user installed servers
-local servers = { "lua_ls", "rust_analyzer", "pyright", "bashls", "clangd" }
+local servers = {
+  "lua_ls",
+  "rust_analyzer",
+  "pyright",
+  "bashls",
+  "clangd",
+  "tailwindcss",
+  "tsserver",
+}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({

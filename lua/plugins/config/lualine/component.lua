@@ -53,13 +53,19 @@ M.lsp_clients = {
       bufnr = vim.api.nvim_get_current_buf(),
     })
 
+    local active_clients = {}
+
     for _, client in ipairs(clients) do
       if client.name ~= "null-ls" and client.name ~= "copilot" then
-        return string.format("[LS]  %s", client.name)
+        table.insert(active_clients, client.name)
       end
     end
 
-    return "[LS]  Inactive"
+    if #active_clients == 0 then
+      return "[LS]  Inactive"
+    end
+
+    return string.format("[LS]  %s", table.concat(active_clients, ", "))
   end,
 
   color = { fg = color.yellow },
