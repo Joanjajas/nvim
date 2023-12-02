@@ -190,14 +190,37 @@ end)
 --------------------------------------------------------------------------------
 -- harpoon
 --------------------------------------------------------------------------------
-map_plugin("harpoon.mark", "ha", "add_file")
-map_plugin("harpoon.ui", "hf", "toggle_quick_menu")
-map_plugin("harpoon.ui", "hn", "nav_next")
-map_plugin("harpoon.ui", "hp", "nav_prev")
-map_plugin("harpoon.ui", "h1", "nav_file", 1)
-map_plugin("harpoon.ui", "h2", "nav_file", 2)
-map_plugin("harpoon.ui", "h3", "nav_file", 3)
-map_plugin("harpoon.ui", "h4", "nav_file", 4)
+local harpoon = require("harpoon")
+harpoon:setup()
+
+map("n", "<leader>hf", function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end)
+
+map("n", "<leader>ha", function()
+  harpoon:list():append()
+end)
+
+map("n", "<leader>hn", function()
+  harpoon:list():next()
+end)
+
+map("n", "<leader>hp", function()
+  harpoon:list():prev()
+end)
+
+map("n", "<leader>h1", function()
+  harpoon:list():select(1)
+end)
+map("n", "<leader>h2", function()
+  harpoon:list():select(2)
+end)
+map("n", "<leader>h3", function()
+  harpoon:list():select(3)
+end)
+map("n", "<leader>h4", function()
+  harpoon:list():select(4)
+end)
 
 --------------------------------------------------------------------------------
 -- lsp
