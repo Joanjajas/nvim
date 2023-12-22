@@ -12,6 +12,7 @@ local config = {
     Tabline = { bg = "none" },
     TablineFill = { bg = "none" },
     TablineSel = { bg = "none" },
+    DiagnosticUnnecessary = { fg = "none" },
   },
 }
 

@@ -117,12 +117,6 @@ map("x", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 map({ "n", "x" }, "<leader>y", '"+y')
 map({ "n", "x" }, "<M-y>", '"+y')
 
--- copy file content to system clipboard
-map({ "n", "x" }, "<leader>gy", "<cmd>%y+<CR>")
-
--- copy file content
-map({ "n", "x" }, "gy", "<cmd>%y<CR>")
-
 --------------------------------------------------------------------------------
 -- copilot
 --------------------------------------------------------------------------------
@@ -132,6 +126,9 @@ map(
   "copilot#Accept()",
   { expr = true, replace_keycodes = false, silent = true }
 )
+
+map("i", "<M-n>", "<Plug>(copilot-accept-line)")
+map("i", "<M-p>", "<cmd>Copilot<CR>")
 
 --------------------------------------------------------------------------------
 -- nvimtree
@@ -170,6 +167,8 @@ map("n", "<leader>ttc", "<cmd>TodoTelescope<CR>")
 --------------------------------------------------------------------------------
 -- gitsigns
 --------------------------------------------------------------------------------
+local gitsigns = require("gitsigns")
+
 map_plugin("gitsigns", "gnh", "next_hunk")
 map_plugin("gitsigns", "gNh", "prev_hunk")
 map_plugin("gitsigns", "gph", "preview_hunk")
@@ -183,15 +182,14 @@ map_plugin("gitsigns", "gsb", "stage_buffer")
 map_plugin("gitsigns", "gpi", "preview_hunk_inline")
 
 map("n", "<leader>gts", function()
-  require("gitsigns").toggle_signs()
-  require("gitsigns").toggle_numhl()
+  gitsigns.toggle_signs()
+  gitsigns.toggle_numhl()
 end)
 
 --------------------------------------------------------------------------------
 -- harpoon
 --------------------------------------------------------------------------------
 local harpoon = require("harpoon")
-harpoon:setup()
 
 map("n", "<leader>hf", function()
   harpoon.ui:toggle_quick_menu(harpoon:list())

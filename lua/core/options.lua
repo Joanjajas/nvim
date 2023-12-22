@@ -3,14 +3,14 @@ local opt = vim.opt
 --------------------------------------------------------------------------------
 -- colorscheme
 --------------------------------------------------------------------------------
-local colorscheme = pcall(vim.cmd.colorscheme, "onedark")
+local colorscheme = pcall(vim.cmd.colorscheme, "gruvbox")
 
 if not colorscheme then
   vim.cmd.colorscheme("habamax")
 end
 
-vim.cmd("hi StatusLine guibg=none")
-vim.cmd("hi StatusLineNC guibg=none")
+vim.cmd("hi clear StatusLine")
+vim.cmd("hi ColorColumn guibg=#161616")
 
 --------------------------------------------------------------------------------
 -- general options
@@ -19,7 +19,6 @@ opt.guicursor = ""
 opt.rnu = true
 opt.showmode = false
 opt.termguicolors = true
--- opt.colorcolumn = "81"
 opt.scrolloff = 7
 opt.sidescrolloff = 7
 opt.expandtab = true

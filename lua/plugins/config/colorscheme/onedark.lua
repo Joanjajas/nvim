@@ -14,7 +14,6 @@ local config = {
     TablineFill = { bg = "none" },
     NormalFloat = { bg = "none" },
     FloatBorder = { bg = "none" },
-    ColorColumn = { bg = "#161616" },
     TablineSel = { bg = "none", fg = "#61afef" },
     DiagnosticUnnecessary = { fg = "none" },
   },

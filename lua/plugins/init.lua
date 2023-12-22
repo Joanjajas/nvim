@@ -68,6 +68,10 @@ return {
 
     branch = "harpoon2",
 
+    config = function()
+      require("plugins.config.harpoon")
+    end,
+
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -370,5 +374,11 @@ return {
   {
     "christoomey/vim-tmux-navigator",
     event = "VimEnter",
+  },
+
+  {
+    "eandrju/cellular-automaton.nvim",
+
+    lazy = false,
   },
 }
