@@ -77,6 +77,17 @@ return {
     },
   },
 
+  -- edit file tree like a buffer
+  {
+    "stevearc/oil.nvim",
+
+    config = function()
+      require("plugins.config.oil")
+    end,
+
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+
   ------------------------------------------------------------------------------
   -- Lsp
   ------------------------------------------------------------------------------
