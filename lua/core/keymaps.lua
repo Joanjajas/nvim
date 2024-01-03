@@ -261,6 +261,7 @@ end)
 map("n", "<leader>o", function()
   local oil = require("oil")
   local current_dir = oil.get_current_dir()
+  vim.api.nvim_command("50vs")
   oil.open(current_dir)
 end)
 
