@@ -6,9 +6,18 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- remove auto comment on new line
-vim.api.nvim_create_autocmd("BufEnter", {
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   callback = function()
+--     vim.opt.formatoptions:remove({ "c", "r", "o" })
+--   end,
+-- })
+--
+
+-- restore last knonw cursor position when opening a file
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  pattern = { "*" },
   callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
+    vim.api.nvim_exec('silent! normal! g`"zv', false)
   end,
 })
 

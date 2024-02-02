@@ -386,10 +386,4 @@ return {
     "christoomey/vim-tmux-navigator",
     event = "VimEnter",
   },
-
-  {
-    "eandrju/cellular-automaton.nvim",
-
-    lazy = false,
-  },
 }

@@ -146,7 +146,7 @@ map("n", "<leader>ut", "<cmd>UndotreeToggle<CR>")
 local telescope = "telescope.builtin"
 
 map_plugin(telescope, "ttl", "builtin")
-map_plugin(telescope, "tff", "find_files")
+map_plugin(telescope, "f", "find_files")
 map_plugin(telescope, "tfr", "oldfiles")
 map_plugin(telescope, "tbf", "buffers")
 map_plugin(telescope, "trg", "live_grep")
@@ -169,8 +169,8 @@ map("n", "<leader>ttc", "<cmd>TodoTelescope<CR>")
 --------------------------------------------------------------------------------
 local gitsigns = require("gitsigns")
 
-map_plugin("gitsigns", "gnh", "next_hunk")
-map_plugin("gitsigns", "gNh", "prev_hunk")
+map_plugin("gitsigns", "nh", "next_hunk")
+map_plugin("gitsigns", "Nh", "prev_hunk")
 map_plugin("gitsigns", "gph", "preview_hunk")
 map_plugin("gitsigns", "grb", "reset_buffer")
 map_plugin("gitsigns", "grh", "reset_hunk")
@@ -225,17 +225,17 @@ end)
 --------------------------------------------------------------------------------
 local telescope = "telescope.builtin"
 
-map_plugin(telescope, "lgd", "lsp_definitions")
+map_plugin(telescope, "gd", "lsp_definitions")
 map_plugin(telescope, "lgr", "lsp_references")
-map_plugin(telescope, "lds", "lsp_document_symbols")
-map_plugin(telescope, "lws", "lsp_dynamic_workspace_symbols")
-map_plugin(telescope, "ldg", "diagnostics")
+map_plugin(telescope, "ds", "lsp_document_symbols")
+map_plugin(telescope, "ws", "lsp_dynamic_workspace_symbols")
+map_plugin(telescope, "dg", "diagnostics")
 
 map("n", "<leader>lrn", function()
   vim.lsp.buf.rename()
 end)
 
-map("n", "<leader>lh", function()
+map("n", "K", function()
   vim.lsp.buf.hover()
 end)
 
@@ -243,15 +243,15 @@ map("n", "<leader>lca", function()
   vim.lsp.buf.code_action()
 end)
 
-map("n", "<leader>lf", function()
+map("n", "m", function()
   vim.diagnostic.open_float()
 end)
 
-map("n", "<leader>lgn", function()
+map("n", "gn", function()
   vim.diagnostic.goto_next()
 end)
 
-map("n", "<leader>lgN", function()
+map("n", "gN", function()
   vim.diagnostic.goto_prev()
 end)
 
