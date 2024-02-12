@@ -11,6 +11,7 @@ local config = {
   overrides = {
     Tabline = { bg = "none" },
     TablineFill = { bg = "none" },
+    SignColumn = { bg = "none" },
     TablineSel = { bg = "none" },
     DiagnosticUnnecessary = { fg = "none" },
   },

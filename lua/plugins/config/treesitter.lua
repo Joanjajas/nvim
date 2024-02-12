@@ -38,6 +38,19 @@ local config = {
         ["irm"] = "@parameter.inner",
       },
     },
+
+    move = {
+      enable = true,
+      set_jumps = true,
+
+      goto_next_start = {
+        ["g;"] = "@function.outer",
+      },
+
+      goto_previous_start = {
+        ["g:"] = "@function.outer",
+      },
+    },
   },
 }
 

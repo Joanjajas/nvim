@@ -23,6 +23,14 @@ local servers = {
   "tsserver",
 }
 
+lspconfig.matlab_ls.setup({
+  settings = {
+    MATLAB = {
+      installPath = "/Applications/MATLAB_R2023b.app",
+    },
+  },
+})
+
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
     handlers = handlers,

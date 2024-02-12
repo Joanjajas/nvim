@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 local function map_plugin(plugin, keys, command, args)
-  map("n", "<leader>" .. keys, function()
+  map("n", keys, function()
     require(plugin)[command](args)
   end)
 end
@@ -145,41 +145,47 @@ map("n", "<leader>ut", "<cmd>UndotreeToggle<CR>")
 --------------------------------------------------------------------------------
 local telescope = "telescope.builtin"
 
-map_plugin(telescope, "ttl", "builtin")
-map_plugin(telescope, "f", "find_files")
-map_plugin(telescope, "tfr", "oldfiles")
-map_plugin(telescope, "tbf", "buffers")
-map_plugin(telescope, "trg", "live_grep")
-map_plugin(telescope, "tth", "colorscheme")
-map_plugin(telescope, "tgs", "git_status")
-map_plugin(telescope, "tgc", "git_commits")
-map_plugin(telescope, "tcm", "commands")
-map_plugin(telescope, "tch", "command_history")
-map_plugin(telescope, "tgb", "git_branches")
-map_plugin(telescope, "thg", "highlights")
-map_plugin(telescope, "thl", "help_tags")
-map_plugin(telescope, "tkm", "keymaps")
-map_plugin(telescope, "/", "current_buffer_fuzzy_find")
-map_plugin(telescope, "tfa", "find_files", { no_ignore = true, hidden = true })
+map_plugin(telescope, "<leader>tl", "builtin")
+map_plugin(telescope, "<leader>f", "find_files")
+map_plugin(telescope, "<leader>rg", "live_grep")
+map_plugin(telescope, "<leader>th", "colorscheme")
+map_plugin(telescope, "<leader>gs", "git_status")
+map_plugin(telescope, "<leader>gc", "git_commits")
+map_plugin(telescope, "<leader>cm", "commands")
+map_plugin(telescope, "<leader>ch", "command_history")
+map_plugin(telescope, "<leader>gb", "git_branches")
+map_plugin(telescope, "<leader>hg", "highlights")
+map_plugin(telescope, "<leader>hl", "help_tags")
+map_plugin(telescope, "<leader>km", "keymaps")
+map_plugin(telescope, "<leader>/", "current_buffer_fuzzy_find")
+map_plugin(
+  telescope,
+  "<space>a",
+  "find_files",
+  { no_ignore = true, hidden = true }
+)
 
-map("n", "<leader>ttc", "<cmd>TodoTelescope<CR>")
+map("n", "<leader>tc", function()
+  require("telescope")
+  vim.cmd("TodoTelescope")
+end)
 
 --------------------------------------------------------------------------------
 -- gitsigns
 --------------------------------------------------------------------------------
 local gitsigns = require("gitsigns")
 
-map_plugin("gitsigns", "nh", "next_hunk")
-map_plugin("gitsigns", "Nh", "prev_hunk")
-map_plugin("gitsigns", "gph", "preview_hunk")
-map_plugin("gitsigns", "grb", "reset_buffer")
-map_plugin("gitsigns", "grh", "reset_hunk")
-map_plugin("gitsigns", "gtd", "toggle_deleted")
-map_plugin("gitsigns", "gbl", "blame_line")
-map_plugin("gitsigns", "gvc", "select_hunk")
-map_plugin("gitsigns", "gsh", "stage_hunk")
-map_plugin("gitsigns", "gsb", "stage_buffer")
-map_plugin("gitsigns", "gpi", "preview_hunk_inline")
+map_plugin("gitsigns", "gm", "next_hunk")
+map_plugin("gitsigns", "gM", "prev_hunk")
+map_plugin("gitsigns", "<leader>ph", "preview_hunk")
+map_plugin("gitsigns", "<leader>rb", "reset_buffer")
+map_plugin("gitsigns", "<leader>rh", "reset_hunk")
+map_plugin("gitsigns", "<leader>td", "toggle_deleted")
+map_plugin("gitsigns", "<leader>bl", "blame_line")
+map_plugin("gitsigns", "<leader>vh", "select_hunk")
+map_plugin("gitsigns", "<leader>gsh", "stage_hunk")
+map_plugin("gitsigns", "<leader>gsb", "stage_buffer")
+map_plugin("gitsigns", "<leader>pi", "preview_hunk_inline")
 
 map("n", "<leader>gts", function()
   gitsigns.toggle_signs()
@@ -199,11 +205,11 @@ map("n", "<leader>ha", function()
   harpoon:list():append()
 end)
 
-map("n", "<leader>hn", function()
+map("n", "<M-j>", function()
   harpoon:list():next()
 end)
 
-map("n", "<leader>hp", function()
+map("n", "<M-k>", function()
   harpoon:list():prev()
 end)
 
@@ -226,10 +232,10 @@ end)
 local telescope = "telescope.builtin"
 
 map_plugin(telescope, "gd", "lsp_definitions")
-map_plugin(telescope, "lgr", "lsp_references")
-map_plugin(telescope, "ds", "lsp_document_symbols")
-map_plugin(telescope, "ws", "lsp_dynamic_workspace_symbols")
-map_plugin(telescope, "dg", "diagnostics")
+map_plugin(telescope, "gr", "lsp_references")
+map_plugin(telescope, "<leader>ds", "lsp_document_symbols")
+map_plugin(telescope, "<leader>ws", "lsp_dynamic_workspace_symbols")
+map_plugin(telescope, "<leader>dg", "diagnostics")
 
 map("n", "<leader>lrn", function()
   vim.lsp.buf.rename()

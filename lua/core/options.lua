@@ -16,7 +16,9 @@ vim.cmd("hi ColorColumn guibg=#161616")
 -- general options
 --------------------------------------------------------------------------------
 opt.guicursor = ""
+opt.signcolumn = "yes"
 opt.rnu = true
+opt.undofile = true
 opt.showmode = false
 opt.termguicolors = true
 opt.scrolloff = 7

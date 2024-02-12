@@ -17,12 +17,13 @@ local mason_lspconfig_config = {
 }
 
 local mason_null_ls_config = {
-    ensure_installed = {
-        "stylua",
-        "black",
-        "shfmt",
-        "shellcheck",
-    }
+  ensure_installed = {
+    "stylua",
+    "black",
+    "shfmt",
+    "matlab-language-server",
+    "shellcheck",
+  },
 }
 
 mason.setup(mason_config)

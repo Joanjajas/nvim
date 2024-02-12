@@ -1,15 +1,15 @@
+require("neodev").setup()
 require("plugins.config.lsp.signature")
 require("plugins.config.lsp.servers")
-require("neodev").setup()
 
 vim.diagnostic.config({
   virtual_text = true,
-  -- underline = false,
+  underline = false,
   float = { border = "rounded" },
 })
 
 -- diagnostics icons
-local icons = { Error = "", Warn = "", Hint = "", Info = "" }
+local icons = { Error = "", Warn = "", Hint = "", Info = "" }
 
 -- change diagnostic icons in the sign column
 for type, icon in pairs(icons) do
