@@ -13,23 +13,42 @@ local handlers = {
 }
 
 -- user installed servers
-local servers = {
-  "lua_ls",
-  "rust_analyzer",
-  "pyright",
-  "bashls",
-  "clangd",
-  "tailwindcss",
-  "tsserver",
-}
+lspconfig.rust_analyzer.setup({
+  handlers = handlers,
+  capabilities = capabilities,
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
+  },
+
+  on_attach = function(client, _)
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+})
 
 lspconfig.matlab_ls.setup({
+  handlers = handlers,
+  capabilities = capabilities,
   settings = {
     MATLAB = {
       installPath = "/Applications/MATLAB_R2023b.app",
     },
   },
+
+  on_attach = function(client, _)
+    client.server_capabilities.documentFormattingProvider = nil
+  end,
 })
+
+local servers = {
+  "lua_ls",
+  "pyright",
+  "bashls",
+  "clangd",
+}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({

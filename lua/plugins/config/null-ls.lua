@@ -7,7 +7,6 @@ local config = {
     builtin.formatting.stylua,
     builtin.formatting.black,
     builtin.formatting.shfmt,
-    builtin.diagnostics.shellcheck,
   },
 }
 

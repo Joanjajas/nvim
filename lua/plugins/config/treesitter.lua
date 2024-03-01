@@ -15,6 +15,16 @@ local config = {
     enable = true,
   },
 
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<M-i>",
+      node_incremental = "<M-i>",
+      scope_incremental = "false",
+      node_decremental = "<M-o>",
+    },
+  },
+
   textobjects = {
     select = {
       enable = true,

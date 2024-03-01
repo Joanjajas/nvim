@@ -22,7 +22,6 @@ local mason_null_ls_config = {
     "black",
     "shfmt",
     "matlab-language-server",
-    "shellcheck",
   },
 }
 

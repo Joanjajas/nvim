@@ -34,6 +34,10 @@ local config = {
           renamed = "",
         },
       },
+
+      show = {
+        folder_arrow = false,
+      },
     },
   },
 
@@ -50,6 +54,7 @@ local config = {
   on_attach = function(bufnr)
     api.config.mappings.default_on_attach(bufnr)
     vim.keymap.set("n", "<BS>", ":q!<CR>", { buffer = bufnr })
+    vim.keymap.set("n", "+", api.tree.change_root_to_node, { buffer = bufnr })
   end,
 }
 
