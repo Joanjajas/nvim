@@ -17,12 +17,14 @@ vim.cmd("hi ColorColumn guibg=#161616")
 --------------------------------------------------------------------------------
 opt.guicursor = ""
 opt.signcolumn = "yes"
+opt.timeoutlen = 300
+opt.updatetime = 500
 opt.rnu = true
 opt.undofile = true
 opt.showmode = false
 opt.termguicolors = true
-opt.scrolloff = 7
-opt.sidescrolloff = 7
+opt.scrolloff = 10
+opt.sidescrolloff = 10
 opt.expandtab = true
 opt.splitright = true
 opt.splitbelow = true
