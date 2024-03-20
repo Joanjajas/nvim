@@ -48,6 +48,7 @@ local servers = {
   "pyright",
   "bashls",
   "clangd",
+  "texlab",
 }
 
 for _, lsp in ipairs(servers) do
