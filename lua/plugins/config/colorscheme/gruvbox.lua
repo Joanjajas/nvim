@@ -4,7 +4,7 @@ local config = {
     transparent_mode = true,
 
     palette_overrides = {
-        -- dark0 = "none",
+        dark0 = "none",
         dark1 = "none",
         bg0 = "#282828",
     },

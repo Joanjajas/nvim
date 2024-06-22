@@ -32,6 +32,9 @@ map("n", "<Esc>", "<cmd>noh<CR>")
 -- close current window
 map("n", "<BS>", "<cmd>silent! q!<CR>")
 
+-- redo
+map("n", "U", "<cmd>redo<CR>")
+
 -- toggle colorcolumn
 map("n", "<leader>cc", function()
   if vim.wo.colorcolumn == "81" then

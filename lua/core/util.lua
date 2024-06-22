@@ -26,7 +26,7 @@ M.get_buffer_formatter = function()
 
   -- if there is no null-ls formatter check if any of the lsp clients supports
   -- formatting
-  local lsp_clients = vim.lsp.get_active_clients({
+  local lsp_clients = vim.lsp.get_clients({
     bufnr = vim.api.nvim_get_current_buf(),
   })
 

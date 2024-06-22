@@ -17,7 +17,7 @@ local color = {
 
 M.lsp_progress = {
   function()
-    local lsp = vim.lsp.util.get_progress_messages()[1]
+    local lsp = vim.lsp.status()
 
     if vim.o.columns < 120 or not lsp then
       return ""
@@ -43,20 +43,20 @@ M.lsp_progress = {
 
 M.lsp_clients = {
   function()
-    local lsp_progress = M.lsp_progress[1]()
+    local lsp_progress = M.lsp_progress()
 
     if lsp_progress ~= "" then
       return string.format("[LS]  %s", lsp_progress)
     end
 
-    local clients = vim.lsp.get_active_clients({
+    local clients = vim.lsp.get_clients({
       bufnr = vim.api.nvim_get_current_buf(),
     })
 
     local active_clients = {}
 
     for _, client in ipairs(clients) do
-      if client.name ~= "null-ls" and client.name ~= "copilot" then
+      if client.name ~= "null-ls" and client.name ~= "GitHub Copilot" then
         table.insert(active_clients, client.name)
       end
     end
@@ -74,7 +74,7 @@ M.lsp_clients = {
 M.formatter = {
   function()
     local formatter = require("core.util").get_buffer_formatter()
-    local clients = vim.lsp.get_active_clients({
+    local clients = vim.lsp.get_clients({
       bufnr = vim.api.nvim_get_current_buf(),
     })
 
@@ -97,7 +97,7 @@ M.formatter = {
 
 M.copilot = {
   function()
-    local clients = vim.lsp.get_active_clients({
+    local clients = vim.lsp.get_clients({
       bufnr = vim.api.nvim_get_current_buf(),
     })
 

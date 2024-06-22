@@ -34,7 +34,7 @@ lspconfig.matlab_ls.setup({
   capabilities = capabilities,
   settings = {
     MATLAB = {
-      installPath = "/Applications/MATLAB_R2023b.app",
+      installPath = "/Applications/MATLAB_R2024a.app",
     },
   },
 
