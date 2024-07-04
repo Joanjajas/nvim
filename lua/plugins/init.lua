@@ -314,6 +314,20 @@ return {
     opts = {},
   },
 
+  -- better f and t motions
+  {
+    "rhysd/clever-f.vim",
+
+    event = {
+      "BufNewFile",
+      "BufReadPost",
+    },
+
+    config = function()
+      vim.g.clever_f_smart_case = 1
+    end,
+  },
+
   ------------------------------------------------------------------------------
   -- Brackets
   ------------------------------------------------------------------------------
