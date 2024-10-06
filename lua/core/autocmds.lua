@@ -13,8 +13,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- })
 --
 
+-- set docker-compose.yml filetype so the lsp can work
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = { "docker-compose.yml" },
+  callback = function()
+    vim.bo.filetype = "yaml.docker-compose"
+  end,
+})
+
 -- restore last knonw cursor position when opening a file
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+vim.api.nvim_create_autocmd("BufReadPost", {
   pattern = { "*" },
   callback = function()
     vim.api.nvim_exec('silent! normal! g`"zv zz', false)

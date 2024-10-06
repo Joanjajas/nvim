@@ -49,6 +49,8 @@ local servers = {
   "bashls",
   "clangd",
   "texlab",
+  "docker_compose_language_service",
+  "dockerls",
 }
 
 for _, lsp in ipairs(servers) do
