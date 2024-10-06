@@ -24,7 +24,7 @@ map({ "i", "s" }, "kj", "<Esc>")
 map("n", "<leader>s", "<cmd>update<CR>")
 
 -- replace word under cursor in whole file
-map("n", "<leader>rn", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>")
+map("n", "<leader>Rn", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>")
 
 -- stop search highlighting
 map("n", "<Esc>", "<cmd>noh<CR>")
@@ -176,7 +176,6 @@ end)
 --------------------------------------------------------------------------------
 -- gitsigns
 --------------------------------------------------------------------------------
-local gitsigns = require("gitsigns")
 
 map_plugin("gitsigns", "gm", "next_hunk")
 map_plugin("gitsigns", "gM", "prev_hunk")
@@ -189,11 +188,6 @@ map_plugin("gitsigns", "<leader>vh", "select_hunk")
 map_plugin("gitsigns", "<leader>gsh", "stage_hunk")
 map_plugin("gitsigns", "<leader>gsb", "stage_buffer")
 map_plugin("gitsigns", "<leader>pi", "preview_hunk_inline")
-
-map("n", "<leader>gts", function()
-  gitsigns.toggle_signs()
-  gitsigns.toggle_numhl()
-end)
 
 --------------------------------------------------------------------------------
 -- harpoon
@@ -216,19 +210,6 @@ map("n", "<M-k>", function()
   harpoon:list():prev()
 end)
 
-map("n", "<leader>h1", function()
-  harpoon:list():select(1)
-end)
-map("n", "<leader>h2", function()
-  harpoon:list():select(2)
-end)
-map("n", "<leader>h3", function()
-  harpoon:list():select(3)
-end)
-map("n", "<leader>h4", function()
-  harpoon:list():select(4)
-end)
-
 --------------------------------------------------------------------------------
 -- lsp
 --------------------------------------------------------------------------------
@@ -240,7 +221,7 @@ map_plugin(telescope, "<leader>ds", "lsp_document_symbols")
 map_plugin(telescope, "<leader>ws", "lsp_dynamic_workspace_symbols")
 map_plugin(telescope, "<leader>dg", "diagnostics")
 
-map("n", "<leader>lrn", function()
+map("n", "<leader>rn", function()
   vim.lsp.buf.rename()
 end)
 
@@ -271,16 +252,6 @@ local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
 vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
 vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
-
---------------------------------------------------------------------------------
--- oil
---------------------------------------------------------------------------------
-map("n", "<leader>o", function()
-  local oil = require("oil")
-  local current_dir = oil.get_current_dir()
-  vim.api.nvim_command("50vs")
-  oil.open(current_dir)
-end)
 
 --------------------------------------------------------------------------------
 -- comments

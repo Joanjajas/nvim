@@ -9,6 +9,7 @@ local config = {
     "vim",
     "vimdoc",
     "bash",
+    "dockerfile",
   },
 
   highlight = {
