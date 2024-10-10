@@ -51,7 +51,7 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
 
-    lazy = false,
+    cmd = "NvimTreeToggle",
 
     config = function()
       require("plugins.config.nvimtree")
@@ -160,10 +160,6 @@ return {
     end,
 
     dependencies = {
-      -- snippets
-      "L3MON4D3/LuaSnip",
-      "rafamadriz/friendly-snippets",
-
       -- icons
       "onsails/lspkind.nvim",
 
@@ -263,14 +259,6 @@ return {
     config = function()
       require("plugins.config.lualine")
     end,
-  },
-
-  -- tabline
-  {
-    "alvarosevilla95/luatab.nvim",
-
-    event = "TabNew",
-    opts = {},
   },
 
   -- indent guides

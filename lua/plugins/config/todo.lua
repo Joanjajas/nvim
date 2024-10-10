@@ -1,12 +1,12 @@
 local todo = require("todo-comments")
 
 local config = {
-  -- highlight = {
-  --   keyword = "fg",
-  --   after = "",
-  -- },
+  highlight = {
+    keyword = "fg",
+    after = "",
+  },
 
-  -- signs = false,
+  signs = false,
 }
 
 todo.setup(config)

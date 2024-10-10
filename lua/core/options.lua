@@ -3,7 +3,7 @@ local opt = vim.opt
 --------------------------------------------------------------------------------
 -- colorscheme
 --------------------------------------------------------------------------------
-local colorscheme = pcall(vim.cmd.colorscheme, "onedark")
+local colorscheme = pcall(vim.cmd.colorscheme, "gruvbox")
 
 if not colorscheme then
   vim.cmd.colorscheme("habamax")

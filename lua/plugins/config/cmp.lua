@@ -1,5 +1,4 @@
 local cmp = require("cmp")
-local luasnip = require("luasnip")
 local autopairs = require("nvim-autopairs.completion.cmp")
 
 local config = {
@@ -7,12 +6,6 @@ local config = {
 
   completion = {
     keyword_length = 0,
-  },
-
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
   },
 
   window = {
@@ -29,7 +22,6 @@ local config = {
       menu = {
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
-        luasnip = "[LuaSnip]",
         nvim_lua = "[Lua]",
         path = "[Path]",
         cmdline = "[Cmd]",
@@ -43,8 +35,6 @@ local config = {
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
       else
         fallback()
       end
@@ -52,7 +42,6 @@ local config = {
   },
 
   sources = {
-    { name = "luasnip" },
     { name = "nvim_lsp" },
     {
       name = "buffer",
