@@ -12,7 +12,8 @@ local mason_lspconfig_config = {
     "rust_analyzer",
     "pyright",
     "bashls",
-    "clangd",
+    "dockerls",
+    "docker_compose_language_service",
   },
 }
 
@@ -21,7 +22,6 @@ local mason_null_ls_config = {
     "stylua",
     "black",
     "shfmt",
-    "matlab-language-server",
   },
 }
 

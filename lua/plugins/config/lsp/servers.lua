@@ -1,6 +1,6 @@
 local lspconfig = require("lspconfig")
-
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover,
@@ -12,43 +12,11 @@ local handlers = {
   ),
 }
 
--- user installed servers
-lspconfig.rust_analyzer.setup({
-  handlers = handlers,
-  capabilities = capabilities,
-  settings = {
-    ["rust-analyzer"] = {
-      checkOnSave = {
-        command = "clippy",
-      },
-    },
-  },
-
-  on_attach = function(client, _)
-    client.server_capabilities.semanticTokensProvider = nil
-  end,
-})
-
-lspconfig.matlab_ls.setup({
-  handlers = handlers,
-  capabilities = capabilities,
-  settings = {
-    MATLAB = {
-      installPath = "/Applications/MATLAB_R2024a.app",
-    },
-  },
-
-  on_attach = function(client, _)
-    client.server_capabilities.documentFormattingProvider = nil
-  end,
-})
-
 local servers = {
+  "rust_analyzer",
   "lua_ls",
   "pyright",
   "bashls",
-  "clangd",
-  "texlab",
   "docker_compose_language_service",
   "dockerls",
 }
@@ -60,6 +28,7 @@ for _, lsp in ipairs(servers) do
 
     on_attach = function(client, _)
       client.server_capabilities.semanticTokensProvider = nil
+      client.server_capabilities.documentHighlightProvider = nil
     end,
   })
 end
