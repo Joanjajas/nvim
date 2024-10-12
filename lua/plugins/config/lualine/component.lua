@@ -15,40 +15,8 @@ local color = {
   black = "#000000",
 }
 
-M.lsp_progress = {
-  function()
-    local lsp = vim.lsp.status()
-
-    if vim.o.columns < 120 or not lsp then
-      return ""
-    end
-
-    local msg = lsp.message or ""
-    local percentage = lsp.percentage or 0
-    local title = lsp.title or ""
-    local spinners = { "⣷", "⣯", "⣟", "⡿", "⢿", "⣻", "⣽", "⣾" }
-    local ms = vim.loop.hrtime() / 1000000
-    local frame = math.floor(ms / 120) % #spinners
-    local content = string.format(
-      " %%<%s %s %s (%s%%%%) ",
-      spinners[frame + 1],
-      title,
-      msg,
-      percentage
-    )
-
-    return content or ""
-  end,
-}
-
 M.lsp_clients = {
   function()
-    local lsp_progress = M.lsp_progress()
-
-    if lsp_progress ~= "" then
-      return string.format("[LS]  %s", lsp_progress)
-    end
-
     local clients = vim.lsp.get_clients({
       bufnr = vim.api.nvim_get_current_buf(),
     })
