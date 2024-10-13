@@ -30,11 +30,20 @@ local config = {
       "%=",
       component.copilot,
       "%=",
-      "location",
     },
 
     lualine_y = {},
-    lualine_z = {},
+    lualine_z = {
+      {
+        "location",
+        fmt = function()
+          local current_line = vim.fn.line(".")
+          local total_lines = vim.fn.line("$")
+          local column = vim.fn.col(".")
+          return string.format("%d:%d | %d", current_line, total_lines, column)
+        end,
+      },
+    },
   },
 
   inactive_sections = {
