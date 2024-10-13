@@ -70,7 +70,7 @@ M.copilot = {
     })
 
     for _, client in ipairs(clients) do
-      if client.name == "copilot" then
+      if client.name == "GitHub Copilot" then
         return "Copilot "
       end
     end
@@ -83,7 +83,7 @@ M.copilot = {
 
 M.branch = {
   "branch",
-  icon = "",
+  icon = " ",
   color = { fg = color.magenta },
 }
 
