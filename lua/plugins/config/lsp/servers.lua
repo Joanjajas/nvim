@@ -12,6 +12,17 @@ local handlers = {
   ),
 }
 
+require("lspconfig").dartls.setup({
+  cmd = { "dart", "language-server", "--protocol=lsp" },
+  handlers = handlers,
+  capabilities = capabilities,
+
+  on_attach = function(client, _)
+    client.server_capabilities.semanticTokensProvider = nil
+    client.server_capabilities.documentHighlightProvider = nil
+  end,
+})
+
 local servers = {
   "rust_analyzer",
   "lua_ls",
