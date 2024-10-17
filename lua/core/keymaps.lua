@@ -228,7 +228,7 @@ map("n", "K", function()
   vim.lsp.buf.hover()
 end)
 
-map("n", "<leader>lca", function()
+map("n", "<leader>ca", function()
   vim.lsp.buf.code_action()
 end)
 
