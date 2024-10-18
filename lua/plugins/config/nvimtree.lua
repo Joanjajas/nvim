@@ -4,6 +4,12 @@ local api = require("nvim-tree.api")
 local config = {
   hijack_cursor = true,
 
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    },
+  },
+
   update_focused_file = {
     enable = true,
   },

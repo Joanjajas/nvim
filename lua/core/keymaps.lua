@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local telescope = "telescope.builtin"
 
 local function map_plugin(plugin, keys, command, args)
   map("n", keys, function()
@@ -15,7 +16,6 @@ vim.g.mapleader = " "
 
 -- exit insert mode
 map({ "i", "s" }, "kj", "<Esc>")
-
 --------------------------------------------------------------------------------
 -- normal mode
 --------------------------------------------------------------------------------
@@ -130,12 +130,10 @@ map(
   { expr = true, replace_keycodes = false, silent = true }
 )
 
-map("i", "<M-n>", "<Plug>(copilot-accept-line)")
-
 --------------------------------------------------------------------------------
 -- nvimtree
 --------------------------------------------------------------------------------
-map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
+map("n", "<leader>n", "<cmd>NvimTreeToggle<CR>")
 
 --------------------------------------------------------------------------------
 -- undotree
@@ -145,8 +143,6 @@ map("n", "<leader>ut", "<cmd>UndotreeToggle<CR>")
 --------------------------------------------------------------------------------
 -- telescope
 --------------------------------------------------------------------------------
-local telescope = "telescope.builtin"
-
 map_plugin(telescope, "<leader>tl", "builtin")
 map_plugin(telescope, "<leader>f", "find_files")
 map_plugin(telescope, "<leader>rg", "live_grep")
@@ -198,21 +194,20 @@ map("n", "<leader>hf", function()
 end)
 
 map("n", "<leader>ha", function()
-  harpoon:list():append()
+  harpoon:list():add()
 end)
 
-map("n", "<M-j>", function()
+map("n", "<C-n>", function()
   harpoon:list():next()
 end)
 
-map("n", "<M-k>", function()
+map("n", "<C-m>", function()
   harpoon:list():prev()
 end)
 
 --------------------------------------------------------------------------------
 -- lsp
 --------------------------------------------------------------------------------
-local telescope = "telescope.builtin"
 
 map_plugin(telescope, "gd", "lsp_definitions")
 map_plugin(telescope, "gr", "lsp_references")
