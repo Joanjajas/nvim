@@ -25,6 +25,7 @@ require("lspconfig").dartls.setup({
 
 local servers = {
   "rust_analyzer",
+  "texlab",
   "lua_ls",
   "pyright",
   "bashls",

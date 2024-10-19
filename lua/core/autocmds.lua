@@ -5,10 +5,30 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- remove auto comment on new line
-vim.api.nvim_create_autocmd("BufEnter", {
+-- auto compile latex and reload pdf on save
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.tex",
   callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
+    if vim.fn.filereadable("main.tex") == 1 then
+      vim.fn.jobstart("pdflatex main.tex", {
+        on_exit = function(_, return_val)
+          if return_val == 0 then
+            print("Compilation successful!")
+            vim.fn.system("open -g main.pdf")
+            vim.fn.system([[
+              osascript -e 'tell application "Preview" to activate' \
+              -e 'tell application "iTerm" to activate'
+            ]])
+          else
+            print("Compilation failed with error code: " .. return_val)
+          end
+        end,
+        stdout_buffered = true,
+        stderr_buffered = true,
+      })
+    else
+      print("main.tex not found!")
+    end
   end,
 })
 
