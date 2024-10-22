@@ -40,7 +40,12 @@ local config = {
           local current_line = vim.fn.line(".")
           local total_lines = vim.fn.line("$")
           local column = vim.fn.col(".")
-          return string.format("%d:%d | %d", current_line, total_lines, column)
+          return string.format(
+            "[%d:%d] | [%d]",
+            current_line,
+            total_lines,
+            column
+          )
         end,
       },
     },

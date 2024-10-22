@@ -155,13 +155,19 @@ map_plugin(telescope, "<leader>gb", "git_branches")
 map_plugin(telescope, "<leader>hg", "highlights")
 map_plugin(telescope, "<leader>hl", "help_tags")
 map_plugin(telescope, "<leader>km", "keymaps")
-map_plugin(telescope, "<leader>/", "current_buffer_fuzzy_find")
+
 map_plugin(
   telescope,
   "<space>a",
   "find_files",
   { no_ignore = true, hidden = true }
 )
+
+map("n", "<leader>/", function()
+  require("telescope.builtin").current_buffer_fuzzy_find({
+    sorting_strategy = "ascending",
+  })
+end)
 
 map("n", "<leader>tc", function()
   require("telescope")
