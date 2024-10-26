@@ -53,7 +53,7 @@ M.formatter = {
     -- if we are using the language server client formatter display this
     for _, client in ipairs(clients) do
       if client.name == formatter.name then
-        return string.format("[Formatter]  LSP")
+        return string.format("[Formatter]  %s", formatter.name)
       end
     end
 

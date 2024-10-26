@@ -1,12 +1,26 @@
 local null_ls = require("null-ls")
+local h = require("null-ls.helpers")
+local methods = require("null-ls.methods")
 
-local builtin = null_ls.builtins
+local FORMATTING = methods.internal.FORMATTING
+
+local ruff_formatter = h.make_builtin({
+  name = "ruff",
+  method = FORMATTING,
+  filetypes = { "python" },
+  generator_opts = {
+    command = "ruff",
+    args = { "format", "-" },
+    to_stdin = true,
+  },
+  factory = h.formatter_factory,
+})
 
 local config = {
   sources = {
-    builtin.formatting.stylua,
-    builtin.formatting.black,
-    builtin.formatting.shfmt,
+    null_ls.builtins.formatting.stylua,
+    null_ls.builtins.formatting.shfmt,
+    ruff_formatter,
   },
 }
 

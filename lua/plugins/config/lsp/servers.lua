@@ -27,6 +27,7 @@ local servers = {
   "rust_analyzer",
   "texlab",
   "lua_ls",
+  "ruff",
   "pyright",
   "bashls",
   "docker_compose_language_service",
