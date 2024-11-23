@@ -20,7 +20,6 @@ local mason_lspconfig_config = {
 local mason_null_ls_config = {
   ensure_installed = {
     "stylua",
-    "black",
     "shfmt",
   },
 }

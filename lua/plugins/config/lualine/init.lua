@@ -19,7 +19,10 @@ local config = {
     lualine_b = {},
     lualine_c = {
       component.branch,
-      "filename",
+      {
+        "filename",
+        path = 1,
+      },
       "diff",
     },
 

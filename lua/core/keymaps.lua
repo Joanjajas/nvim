@@ -24,7 +24,7 @@ map({ "i", "s" }, "kj", "<Esc>")
 map("n", "<leader>s", "<cmd>update<CR>")
 
 -- replace word under cursor in whole file
-map("n", "<leader>Rn", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>")
+map("n", "<leader>rN", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>")
 
 -- stop search highlighting
 map("n", "<Esc>", "<cmd>noh<CR>")
