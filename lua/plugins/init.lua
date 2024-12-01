@@ -8,10 +8,6 @@ return {
     "navarasu/onedark.nvim",
 
     lazy = false,
-
-    config = function()
-      require("plugins.config.colorscheme.onedark")
-    end,
   },
 
   -- gruvbox colorscheme
@@ -44,21 +40,6 @@ return {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
       },
-    },
-  },
-
-  -- file explorer
-  {
-    "nvim-tree/nvim-tree.lua",
-
-    cmd = "NvimTreeToggle",
-
-    config = function()
-      require("plugins.config.nvimtree")
-    end,
-
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
     },
   },
 
@@ -95,7 +76,6 @@ return {
     end,
 
     dependencies = {
-      "folke/neodev.nvim",
       "ray-x/lsp_signature.nvim",
       "nvimtools/none-ls.nvim",
       "williamboman/mason.nvim",
@@ -160,10 +140,6 @@ return {
     end,
 
     dependencies = {
-      -- icons
-      "onsails/lspkind.nvim",
-
-      -- cmp sources
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-cmdline",
@@ -243,23 +219,6 @@ return {
   ------------------------------------------------------------------------------
   -- Ui
   ------------------------------------------------------------------------------
-
-  -- statusline
-  {
-    "nvim-lualine/lualine.nvim",
-
-    event = {
-      "BufNewFile",
-      "BufReadPost",
-      "BufLeave",
-      "InsertEnter",
-      "CursorMoved",
-    },
-
-    config = function()
-      require("plugins.config.lualine")
-    end,
-  },
 
   -- indent guides
   {

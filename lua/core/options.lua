@@ -5,13 +5,6 @@ local opt = vim.opt
 --------------------------------------------------------------------------------
 local colorscheme = pcall(vim.cmd.colorscheme, "gruvbox")
 
-if not colorscheme then
-  vim.cmd.colorscheme("habamax")
-end
-
-vim.cmd("hi clear StatusLine")
-vim.cmd("hi ColorColumn guibg=#161616")
-
 --------------------------------------------------------------------------------
 -- general options
 --------------------------------------------------------------------------------
@@ -20,6 +13,7 @@ opt.signcolumn = "yes"
 opt.timeoutlen = 300
 opt.updatetime = 500
 opt.rnu = true
+opt.number = true
 opt.undofile = true
 opt.showmode = false
 opt.termguicolors = true

@@ -49,10 +49,10 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- show nvimtree on startup only when opening a directory
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    if vim.fn.isdirectory(vim.fn.expand("%")) ~= 0 then
-      require("nvim-tree.api").tree.open()
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   callback = function()
+--     if vim.fn.isdirectory(vim.fn.expand("%")) ~= 0 then
+--       require("nvim-tree.api").tree.open()
+--     end
+--   end,
+-- })

@@ -3,7 +3,7 @@ local mason_lspconfig = require("mason-lspconfig")
 local mason_null_ls = require("mason-null-ls")
 
 local mason_config = {
-  PATH = "skip",
+  PATH = "append",
 }
 
 local mason_lspconfig_config = {

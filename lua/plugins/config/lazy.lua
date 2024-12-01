@@ -3,10 +3,6 @@ return {
     lazy = true,
   },
 
-  install = {
-    colorscheme = { "gruvbox" },
-  },
-
   performance = {
     rtp = {
       disabled_plugins = {
@@ -16,10 +12,6 @@ return {
         "getscriptPlugin",
         "gzip",
         "logipat",
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
         "matchit",
         "tar",
         "tarPlugin",
