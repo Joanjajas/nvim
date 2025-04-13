@@ -346,4 +346,23 @@ return {
         "christoomey/vim-tmux-navigator",
         event = "VimEnter",
     },
+
+    -- Better select
+    {
+        'nvim-telescope/telescope-ui-select.nvim',
+    },
+
+    -- Better input
+    {
+        "folke/snacks.nvim",
+
+        event = {
+            "BufNewFile",
+            "BufReadPost",
+        },
+
+        config = function()
+            require("plugins.config.snacks")
+        end,
+    },
 }
