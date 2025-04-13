@@ -1,337 +1,345 @@
 return {
-  ------------------------------------------------------------------------------
-  -- Colorschemes
-  ------------------------------------------------------------------------------
+    ------------------------------------------------------------------------------
+    -- Colorschemes
+    ------------------------------------------------------------------------------
 
-  -- onedark
-  {
-    "navarasu/onedark.nvim",
+    -- onedark
+    {
+        "navarasu/onedark.nvim",
 
-    lazy = false,
-  },
-
-  -- gruvbox colorscheme
-  {
-    "ellisonleao/gruvbox.nvim",
-
-    lazy = false,
-
-    config = function()
-      require("plugins.config.colorscheme.gruvbox")
-    end,
-  },
-
-  ------------------------------------------------------------------------------
-  -- File navigation
-  ------------------------------------------------------------------------------
-
-  -- fuzzy finder
-  {
-    "nvim-telescope/telescope.nvim",
-
-    config = function()
-      require("plugins.config.telescope")
-    end,
-
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-      },
-    },
-  },
-
-  -- switch betwwen marked project files
-  {
-    "ThePrimeagen/harpoon",
-
-    branch = "harpoon2",
-
-    config = function()
-      require("plugins.config.harpoon")
-    end,
-
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-  },
-
-  ------------------------------------------------------------------------------
-  -- Lsp
-  ------------------------------------------------------------------------------
-
-  -- lsp config
-  {
-    "neovim/nvim-lspconfig",
-
-    event = {
-      "BufNewFile",
-      "BufReadPost",
+        lazy = false,
     },
 
-    config = function()
-      require("plugins.config.lsp")
-    end,
+    -- gruvbox colorscheme
+    {
+        "ellisonleao/gruvbox.nvim",
 
-    dependencies = {
-      "ray-x/lsp_signature.nvim",
-      "nvimtools/none-ls.nvim",
-      "williamboman/mason.nvim",
-    },
-  },
+        lazy = false,
 
-  -- install lsp servers, dap servers, linters, and formatters
-  {
-    "williamboman/mason.nvim",
-
-    cmd = {
-      "MasonInstall",
-      "MasonUninstall",
-      "MasonUninstallAll",
-      "MasonLog",
-      "Mason",
+        config = function()
+            require("plugins.config.colorscheme.gruvbox")
+        end,
     },
 
-    config = function()
-      require("plugins.config.mason")
-    end,
+    ------------------------------------------------------------------------------
+    -- File navigation
+    ------------------------------------------------------------------------------
 
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-      "jay-babu/mason-null-ls.nvim",
-    },
-  },
+    -- fuzzy finder
+    {
+        "nvim-telescope/telescope.nvim",
 
-  -- manage code formatters as lsp sources
-  {
-    "nvimtools/none-ls.nvim",
+        config = function()
+            require("plugins.config.telescope")
+        end,
 
-    event = {
-      "BufNewFile",
-      "BufReadPost",
-    },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
 
-    config = function()
-      require("plugins.config.null-ls")
-    end,
-
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-  },
-
-  ------------------------------------------------------------------------------
-  -- Autocompletion
-  ------------------------------------------------------------------------------
-
-  -- atuocompletion
-  {
-    "hrsh7th/nvim-cmp",
-
-    event = {
-      "InsertEnter",
-      "CmdlineEnter",
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = "make",
+            },
+        },
     },
 
-    config = function()
-      require("plugins.config.cmp")
-    end,
+    -- switch betwwen marked project files
+    {
+        "ThePrimeagen/harpoon",
 
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-    },
-  },
+        branch = "harpoon2",
 
-  -- copilot
-  {
-    "github/copilot.vim",
+        config = function()
+            require("plugins.config.harpoon")
+        end,
 
-    event = {
-      "BufNewFile",
-      "BufReadPost",
-      "BufEnter",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
     },
 
-    config = function()
-      vim.g.copilot_assume_mapped = true
-      vim.g.copilot_no_tab_map = true
-    end,
-  },
+    ------------------------------------------------------------------------------
+    -- Lsp
+    ------------------------------------------------------------------------------
 
-  ------------------------------------------------------------------------------
-  -- Comments
-  ------------------------------------------------------------------------------
+    -- lsp config
+    {
+        "neovim/nvim-lspconfig",
 
-  -- smart comments
-  {
-    "numToStr/Comment.nvim",
+        event = {
+            "BufNewFile",
+            "BufReadPost",
+        },
 
-    event = {
-      "BufNewFile",
-      "BufReadPost",
+        config = function()
+            require("plugins.config.lsp")
+        end,
+
+        dependencies = {
+            "ray-x/lsp_signature.nvim",
+            "nvimtools/none-ls.nvim",
+            "williamboman/mason.nvim",
+        },
     },
 
-    config = function()
-      require("plugins.config.comment")
-    end,
-  },
+    -- install lsp servers, dap servers, linters, and formatters
+    {
+        "williamboman/mason.nvim",
 
-  -- todo comments
-  {
-    "folke/todo-comments.nvim",
+        cmd = {
+            "MasonInstall",
+            "MasonUninstall",
+            "MasonUninstallAll",
+            "MasonLog",
+            "Mason",
+        },
 
-    event = {
-      "BufNewFile",
-      "BufReadPost",
+        config = function()
+            require("plugins.config.mason")
+        end,
+
+        dependencies = {
+            "WhoIsSethDaniel/mason-tool-installer.nvim",
+        },
     },
 
-    cmd = "TodoTelescope",
 
-    config = function()
-      require("plugins.config.todo")
-    end,
-  },
+    {
+        'stevearc/conform.nvim',
 
-  ------------------------------------------------------------------------------
-  -- Git
-  ------------------------------------------------------------------------------
+        event = {
+            "BufNewFile",
+            "BufReadPost",
+        },
 
-  -- git integration
-  {
-    "lewis6991/gitsigns.nvim",
-
-    event = {
-      "BufNewFile",
-      "BufReadPost",
+        config = function()
+            require("plugins.config.conform")
+        end,
     },
 
-    config = function()
-      require("plugins.config.gitsigns")
-    end,
-  },
+    {
+        'mfussenegger/nvim-lint',
 
-  ------------------------------------------------------------------------------
-  -- Ui
-  ------------------------------------------------------------------------------
+        event = {
+            "BufNewFile",
+            "BufReadPost",
+        },
 
-  -- indent guides
-  {
-    "lukas-reineke/indent-blankline.nvim",
-
-    event = {
-      "BufNewFile",
-      "BufReadPost",
+        config = function()
+            require("plugins.config.lint")
+        end,
     },
 
-    config = function()
-      require("plugins.config.blankline")
-    end,
-  },
+    ------------------------------------------------------------------------------
+    -- Autocompletion
+    ------------------------------------------------------------------------------
 
-  ------------------------------------------------------------------------------
-  -- Motion
-  ------------------------------------------------------------------------------
+    -- atuocompletion
+    {
+        "hrsh7th/nvim-cmp",
 
-  -- jump to any location in the buffer
-  {
-    "ggandor/leap.nvim",
+        event = {
+            "InsertEnter",
+            "CmdlineEnter",
+        },
 
-    event = {
-      "BufNewFile",
-      "BufReadPost",
+        config = function()
+            require("plugins.config.cmp")
+        end,
+
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+        },
     },
 
-    opts = {},
-  },
+    -- copilot
+    {
+        "github/copilot.vim",
 
-  -- better f and t motions
-  {
-    "rhysd/clever-f.vim",
+        event = {
+            "BufNewFile",
+            "BufReadPost",
+            "BufEnter",
+        },
 
-    event = {
-      "BufNewFile",
-      "BufReadPost",
+        config = function()
+            vim.g.copilot_assume_mapped = true
+            vim.g.copilot_no_tab_map = true
+        end,
     },
 
-    config = function()
-      vim.g.clever_f_smart_case = 1
-    end,
-  },
+    ------------------------------------------------------------------------------
+    -- Comments
+    ------------------------------------------------------------------------------
 
-  ------------------------------------------------------------------------------
-  -- Brackets
-  ------------------------------------------------------------------------------
+    -- smart comments
+    {
+        "numToStr/Comment.nvim",
 
-  -- surround
-  {
-    "kylechui/nvim-surround",
+        event = {
+            "BufNewFile",
+            "BufReadPost",
+        },
 
-    event = {
-      "BufNewFile",
-      "BufReadPost",
+        config = function()
+            require("plugins.config.comment")
+        end,
     },
 
-    opts = {},
-  },
+    -- todo comments
+    {
+        "folke/todo-comments.nvim",
 
-  -- autopairs
-  {
-    "windwp/nvim-autopairs",
+        event = {
+            "BufNewFile",
+            "BufReadPost",
+        },
 
-    event = "InsertEnter",
-    opts = {},
-  },
+        cmd = "TodoTelescope",
 
-  ------------------------------------------------------------------------------
-  -- Misc
-  ------------------------------------------------------------------------------
-
-  -- improved syntax highlighting and text objects
-  {
-    "nvim-treesitter/nvim-treesitter",
-
-    event = {
-      "BufNewFile",
-      "BufReadPost",
+        config = function()
+            require("plugins.config.todo")
+        end,
     },
 
-    cmd = {
-      "TSInstall",
-      "TSUninstall",
-      "TSUpdate",
+    ------------------------------------------------------------------------------
+    -- Git
+    ------------------------------------------------------------------------------
+
+    -- git integration
+    {
+        "lewis6991/gitsigns.nvim",
+
+        event = {
+            "BufNewFile",
+            "BufReadPost",
+        },
+
+        config = function()
+            require("plugins.config.gitsigns")
+        end,
     },
 
-    config = function()
-      require("plugins.config.treesitter")
-    end,
+    ------------------------------------------------------------------------------
+    -- Ui
+    ------------------------------------------------------------------------------
 
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "nvim-treesitter/nvim-treesitter-context",
+    -- indent guides
+    {
+        "lukas-reineke/indent-blankline.nvim",
+
+        event = {
+            "BufNewFile",
+            "BufReadPost",
+        },
+
+        config = function()
+            require("plugins.config.blankline")
+        end,
     },
-  },
 
-  -- undo on steroids
-  {
-    "mbbill/undotree",
+    ------------------------------------------------------------------------------
+    -- Motion
+    ------------------------------------------------------------------------------
 
-    cmd = "UndotreeToggle",
+    -- jump to any location in the buffer
+    {
+        "ggandor/leap.nvim",
 
-    config = function()
-      vim.g.undotree_WindowLayout = 3
-      vim.g.undotree_SetFocusWhenToggle = 1
-      vim.g.undotree_ShortIndicators = 1
-    end,
-  },
+        event = {
+            "BufNewFile",
+            "BufReadPost",
+        },
 
-  -- tmux integration
-  {
-    "christoomey/vim-tmux-navigator",
-    event = "VimEnter",
-  },
+        opts = {},
+    },
+
+    -- better f and t motions
+    {
+        "rhysd/clever-f.vim",
+
+        event = {
+            "BufNewFile",
+            "BufReadPost",
+        },
+
+        config = function()
+            vim.g.clever_f_smart_case = 1
+        end,
+    },
+
+    ------------------------------------------------------------------------------
+    -- Brackets
+    ------------------------------------------------------------------------------
+
+    -- surround
+    {
+        "kylechui/nvim-surround",
+
+        event = {
+            "BufNewFile",
+            "BufReadPost",
+        },
+
+        opts = {},
+    },
+
+    -- autopairs
+    {
+        "windwp/nvim-autopairs",
+
+        event = "InsertEnter",
+        opts = {},
+    },
+
+    ------------------------------------------------------------------------------
+    -- Misc
+    ------------------------------------------------------------------------------
+
+    -- improved syntax highlighting and text objects
+    {
+        "nvim-treesitter/nvim-treesitter",
+
+        event = {
+            "BufNewFile",
+            "BufReadPost",
+        },
+
+        cmd = {
+            "TSInstall",
+            "TSUninstall",
+            "TSUpdate",
+        },
+
+        config = function()
+            require("plugins.config.treesitter")
+        end,
+
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            "nvim-treesitter/nvim-treesitter-context",
+        },
+    },
+
+    -- undo on steroids
+    {
+        "mbbill/undotree",
+
+        cmd = "UndotreeToggle",
+
+        config = function()
+            vim.g.undotree_WindowLayout = 3
+            vim.g.undotree_SetFocusWhenToggle = 1
+            vim.g.undotree_ShortIndicators = 1
+        end,
+    },
+
+    -- tmux integration
+    {
+        "christoomey/vim-tmux-navigator",
+        event = "VimEnter",
+    },
 }

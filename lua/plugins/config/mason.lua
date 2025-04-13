@@ -1,29 +1,27 @@
 local mason = require("mason")
-local mason_lspconfig = require("mason-lspconfig")
-local mason_null_ls = require("mason-null-ls")
+local mason_tool_installer = require("mason-tool-installer")
 
 local mason_config = {
-  PATH = "skip",
+    PATH = "skip",
 }
 
-local mason_lspconfig_config = {
-  ensure_installed = {
-    "lua_ls",
-    "rust_analyzer",
-    "pyright",
-    "bashls",
-    "dockerls",
-    "docker_compose_language_service",
-  },
-}
+local mason_tool_installer_config = {
+    ensure_installed = {
+        "lua-language-server",
+        "rust-analyzer",
+        "pyright",
+        "bash-language-server",
+        "ruff",
+        "dockerfile-language-server",
+        "shellcheck",
+        "mypy",
+        "shfmt",
+        "ruff",
+        "docker-compose-language-service",
+    },
 
-local mason_null_ls_config = {
-  ensure_installed = {
-    "stylua",
-    "shfmt",
-  },
+    auto_update = true,
 }
 
 mason.setup(mason_config)
-mason_lspconfig.setup(mason_lspconfig_config)
-mason_null_ls.setup(mason_null_ls_config)
+mason_tool_installer.setup(mason_tool_installer_config)
