@@ -3,14 +3,14 @@ return {
     -- Colorschemes
     ------------------------------------------------------------------------------
 
-    -- onedark
+    -- Onedark
     {
         "navarasu/onedark.nvim",
 
         lazy = false,
     },
 
-    -- gruvbox colorscheme
+    -- Gruvbox colorscheme
     {
         "ellisonleao/gruvbox.nvim",
 
@@ -25,7 +25,7 @@ return {
     -- File navigation
     ------------------------------------------------------------------------------
 
-    -- fuzzy finder
+    -- Fuzzy finder
     {
         "nvim-telescope/telescope.nvim",
 
@@ -43,7 +43,7 @@ return {
         },
     },
 
-    -- switch betwwen marked project files
+    -- Switch betwwen marked project files
     {
         "ThePrimeagen/harpoon",
 
@@ -62,7 +62,7 @@ return {
     -- Lsp
     ------------------------------------------------------------------------------
 
-    -- lsp config
+    -- Lsp config
     {
         "neovim/nvim-lspconfig",
 
@@ -77,12 +77,11 @@ return {
 
         dependencies = {
             "ray-x/lsp_signature.nvim",
-            "nvimtools/none-ls.nvim",
             "williamboman/mason.nvim",
         },
     },
 
-    -- install lsp servers, dap servers, linters, and formatters
+    -- Install lsp servers, dap servers, linters, and formatters
     {
         "williamboman/mason.nvim",
 
@@ -103,7 +102,11 @@ return {
         },
     },
 
+    ------------------------------------------------------------------------------
+    -- Formatting and linting
+    ------------------------------------------------------------------------------
 
+    -- Formatting
     {
         'stevearc/conform.nvim',
 
@@ -117,6 +120,7 @@ return {
         end,
     },
 
+    -- Linting
     {
         'mfussenegger/nvim-lint',
 
@@ -134,7 +138,7 @@ return {
     -- Autocompletion
     ------------------------------------------------------------------------------
 
-    -- atuocompletion
+    -- Atuocompletion
     {
         "hrsh7th/nvim-cmp",
 
@@ -155,7 +159,7 @@ return {
         },
     },
 
-    -- copilot
+    -- Copilot
     {
         "github/copilot.vim",
 
@@ -175,7 +179,7 @@ return {
     -- Comments
     ------------------------------------------------------------------------------
 
-    -- smart comments
+    -- Smart comments
     {
         "numToStr/Comment.nvim",
 
@@ -189,7 +193,7 @@ return {
         end,
     },
 
-    -- todo comments
+    -- Todo comments
     {
         "folke/todo-comments.nvim",
 
@@ -209,7 +213,7 @@ return {
     -- Git
     ------------------------------------------------------------------------------
 
-    -- git integration
+    -- Git integration
     {
         "lewis6991/gitsigns.nvim",
 
@@ -227,7 +231,7 @@ return {
     -- Ui
     ------------------------------------------------------------------------------
 
-    -- indent guides
+    -- Indent guides
     {
         "lukas-reineke/indent-blankline.nvim",
 
@@ -245,7 +249,7 @@ return {
     -- Motion
     ------------------------------------------------------------------------------
 
-    -- jump to any location in the buffer
+    -- Jump to any location in the buffer
     {
         "ggandor/leap.nvim",
 
@@ -257,7 +261,7 @@ return {
         opts = {},
     },
 
-    -- better f and t motions
+    -- Better f and t motions
     {
         "rhysd/clever-f.vim",
 
@@ -275,7 +279,7 @@ return {
     -- Brackets
     ------------------------------------------------------------------------------
 
-    -- surround
+    -- Surround
     {
         "kylechui/nvim-surround",
 
@@ -287,7 +291,7 @@ return {
         opts = {},
     },
 
-    -- autopairs
+    -- Autopairs
     {
         "windwp/nvim-autopairs",
 
@@ -299,7 +303,7 @@ return {
     -- Misc
     ------------------------------------------------------------------------------
 
-    -- improved syntax highlighting and text objects
+    -- Improved syntax highlighting and text objects
     {
         "nvim-treesitter/nvim-treesitter",
 
@@ -324,7 +328,7 @@ return {
         },
     },
 
-    -- undo on steroids
+    -- Undo on steroids
     {
         "mbbill/undotree",
 
@@ -337,7 +341,7 @@ return {
         end,
     },
 
-    -- tmux integration
+    -- Tmux integration
     {
         "christoomey/vim-tmux-navigator",
         event = "VimEnter",

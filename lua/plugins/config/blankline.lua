@@ -1,9 +1,9 @@
 local blankline = require("ibl")
 
 local config = {
-  scope = {
-    enabled = false,
-  },
+    scope = {
+        enabled = false,
+    },
 }
 
 blankline.setup(config)

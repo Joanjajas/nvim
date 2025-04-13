@@ -1,11 +1,11 @@
 local telescope = require("telescope")
 
 local config = {
-  pickers = {
-    colorscheme = {
-      enable_preview = true,
+    pickers = {
+        colorscheme = {
+            enable_preview = true,
+        },
     },
-  },
 }
 
 telescope.setup(config)

@@ -1,12 +1,12 @@
 local opt = vim.opt
 
 --------------------------------------------------------------------------------
--- colorscheme
+-- Colorscheme
 --------------------------------------------------------------------------------
-local colorscheme = pcall(vim.cmd.colorscheme, "gruvbox")
+pcall(vim.cmd.colorscheme, "gruvbox")
 
 --------------------------------------------------------------------------------
--- general options
+-- General options
 --------------------------------------------------------------------------------
 opt.guicursor = ""
 opt.signcolumn = "yes"
@@ -31,18 +31,18 @@ opt.smarttab = true
 opt.mouse = "a"
 opt.whichwrap:append("hl")
 opt.fillchars = {
-  stl = " ",
-  stlnc = " ",
-  wbr = " ",
-  horiz = " ",
-  horizup = " ",
-  horizdown = " ",
-  vert = " ",
-  vertleft = " ",
-  vertright = " ",
-  verthoriz = " ",
-  diff = " ",
-  msgsep = " ",
-  eob = " ",
-  lastline = " ",
+    stl = " ",
+    stlnc = " ",
+    wbr = " ",
+    horiz = " ",
+    horizup = " ",
+    horizdown = " ",
+    vert = " ",
+    vertleft = " ",
+    vertright = " ",
+    verthoriz = " ",
+    diff = " ",
+    msgsep = " ",
+    eob = " ",
+    lastline = " ",
 }
