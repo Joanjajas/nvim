@@ -67,8 +67,8 @@ return {
         "neovim/nvim-lspconfig",
 
         event = {
+            "BufReadPre",
             "BufNewFile",
-            "BufReadPost",
         },
 
         config = function()
@@ -76,7 +76,6 @@ return {
         end,
 
         dependencies = {
-            "ray-x/lsp_signature.nvim",
             "williamboman/mason.nvim",
         },
     },
@@ -111,8 +110,8 @@ return {
         'stevearc/conform.nvim',
 
         event = {
+            "BufReadPre",
             "BufNewFile",
-            "BufReadPost",
         },
 
         config = function()
@@ -125,8 +124,8 @@ return {
         'mfussenegger/nvim-lint',
 
         event = {
+            "BufReadPre",
             "BufNewFile",
-            "BufReadPost",
         },
 
         config = function()
@@ -140,7 +139,9 @@ return {
 
     -- Atuocompletion
     {
-        "hrsh7th/nvim-cmp",
+        'saghen/blink.cmp',
+
+        version = '1.*',
 
         event = {
             "InsertEnter",
@@ -148,15 +149,8 @@ return {
         },
 
         config = function()
-            require("plugins.config.cmp")
+            require("plugins.config.blink")
         end,
-
-        dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-cmdline",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-        },
     },
 
     -- Copilot
@@ -164,9 +158,8 @@ return {
         "github/copilot.vim",
 
         event = {
+            "BufReadPre",
             "BufNewFile",
-            "BufReadPost",
-            "BufEnter",
         },
 
         config = function()
@@ -184,8 +177,8 @@ return {
         "numToStr/Comment.nvim",
 
         event = {
+            "BufReadPre",
             "BufNewFile",
-            "BufReadPost",
         },
 
         config = function()
@@ -198,8 +191,8 @@ return {
         "folke/todo-comments.nvim",
 
         event = {
+            "BufReadPre",
             "BufNewFile",
-            "BufReadPost",
         },
 
         cmd = "TodoTelescope",
@@ -218,8 +211,8 @@ return {
         "lewis6991/gitsigns.nvim",
 
         event = {
+            "BufReadPre",
             "BufNewFile",
-            "BufReadPost",
         },
 
         config = function()
@@ -236,8 +229,8 @@ return {
         "lukas-reineke/indent-blankline.nvim",
 
         event = {
+            "BufReadPre",
             "BufNewFile",
-            "BufReadPost",
         },
 
         config = function()
@@ -254,8 +247,8 @@ return {
         "ggandor/leap.nvim",
 
         event = {
+            "BufReadPre",
             "BufNewFile",
-            "BufReadPost",
         },
 
         opts = {},
@@ -266,8 +259,8 @@ return {
         "rhysd/clever-f.vim",
 
         event = {
+            "BufReadPre",
             "BufNewFile",
-            "BufReadPost",
         },
 
         config = function()
@@ -284,8 +277,8 @@ return {
         "kylechui/nvim-surround",
 
         event = {
+            "BufReadPre",
             "BufNewFile",
-            "BufReadPost",
         },
 
         opts = {},
@@ -308,8 +301,8 @@ return {
         "nvim-treesitter/nvim-treesitter",
 
         event = {
+            "BufReadPre",
             "BufNewFile",
-            "BufReadPost",
         },
 
         cmd = {
@@ -357,8 +350,8 @@ return {
         "folke/snacks.nvim",
 
         event = {
+            "BufReadPre",
             "BufNewFile",
-            "BufReadPost",
         },
 
         config = function()

@@ -1,19 +1,24 @@
-local lspconfig = require("lspconfig")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 local servers = {
     "rust_analyzer",
     "texlab",
     "ruff",
-    "pyright",
+    -- "pyright",
     "bashls",
     "docker_compose_language_service",
     "ts_ls",
     "dockerls",
+    "ty",
+    "lua_ls",
 }
 
-lspconfig.lua_ls.setup({
-    capabilities = capabilities,
+vim.lsp.config("*", {
+    on_attach = function(client, _)
+        client.server_capabilities.semanticTokensProvider = nil
+        client.server_capabilities.documentHighlightProvider = nil
+    end,
+})
+
+vim.lsp.config("lua_ls", {
     settings = {
         Lua = {
             diagnostics = {
@@ -23,13 +28,16 @@ lspconfig.lua_ls.setup({
     },
 })
 
-for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup({
-        capabilities = capabilities,
+vim.lsp.config("ty", {
+    settings = {
+        ty = {
+            experimental = {
+                rename = true,
+            },
+        },
+    },
+})
 
-        on_attach = function(client, _)
-            client.server_capabilities.semanticTokensProvider = nil
-            client.server_capabilities.documentHighlightProvider = nil
-        end,
-    })
+for _, server in ipairs(servers) do
+    vim.lsp.enable(server)
 end
