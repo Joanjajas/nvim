@@ -343,6 +343,15 @@ return {
     -- Better select
     {
         'nvim-telescope/telescope-ui-select.nvim',
+
+        event = {
+            "BufReadPre",
+            "BufNewFile",
+        },
+
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+        },
     },
 
     -- Better input
